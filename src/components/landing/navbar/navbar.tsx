@@ -14,7 +14,7 @@ export interface SocialNetwork {
 
 export interface NavItem {
     _uid: string;
-    name: string; // Changed from label to name to match common storyblok field, assuming 'name' or 'label'
+    label: string;
     link: {
         id: string;
         url: string;
@@ -78,26 +78,24 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
                     <div class="hidden md:flex items-center space-x-8">
                         {menuItems.length > 0 ? (
                             menuItems.map((item) => (
-                                <a
+                                <Link
                                     key={item._uid}
                                     href={getLinkUrl(item)}
-                                    target={item.link.linktype === 'url' ? "_blank" : "_self"}
-                                    rel={item.link.linktype === 'url' ? "noopener noreferrer" : ""}
                                     class="text-muted-foreground hover:text-primary transition-colors text-md font-medium"
                                 >
-                                    {item.name}
-                                </a>
+                                    {item.label}
+                                </Link>
                             ))
                         ) : (
                             // Fallback static menu if no dynamic items
                             ["Inicio", "Nosotros", "Servicios", "Modelo", "Contacto"].map((item) => (
-                                <a
+                                <Link
                                     key={item}
                                     href={`#${item.toLowerCase()}`}
                                     class="text-muted-foreground hover:text-primary transition-colors text-md font-medium"
                                 >
                                     {item}
-                                </a>
+                                </Link>
                             ))
                         )}
 
@@ -105,6 +103,7 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
                         <div class="flex items-center space-x-4 ml-4 pl-4 border-l border-slate-200 dark:border-slate-700">
                             {socialNetworks.map((social) => {
                                 const IconComponent = getIcon(social.iconName);
+                                console.log('############# social', social);
                                 return (
                                     <a
                                         key={social.id}
@@ -140,28 +139,26 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
                     <div class="px-4 pt-2 pb-6 space-y-2">
                         {menuItems.length > 0 ? (
                             menuItems.map((item) => (
-                                <a
+                                <Link
                                     key={item._uid}
                                     href={getLinkUrl(item)}
-                                    target={item.link.linktype === 'url' ? "_blank" : "_self"}
-                                    rel={item.link.linktype === 'url' ? "noopener noreferrer" : ""}
                                     class="block px-3 py-3 rounded-lg text-base font-medium text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
                                     onClick$={() => (isOpen.value = false)}
                                 >
-                                    {item.name}
-                                </a>
+                                    {item.label}
+                                </Link>
                             ))
                         ) : (
                             // Fallback static menu
                             ["Inicio", "Servicios", "Modelo", "Nosotros", "Contacto"].map((item) => (
-                                <a
+                                <Link
                                     key={item}
                                     href={`#${item.toLowerCase()}`}
                                     class="block px-3 py-3 rounded-lg text-base font-medium text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
                                     onClick$={() => (isOpen.value = false)}
                                 >
                                     {item}
-                                </a>
+                                </Link>
                             ))
                         )}
 

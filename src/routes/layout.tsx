@@ -1,4 +1,4 @@
-import { component$, Slot, useStyles$ } from '@builder.io/qwik';
+import { component$, Slot } from '@builder.io/qwik';
 import { routeLoader$ } from '@builder.io/qwik-city';
 import { Navbar, type SocialNetwork } from '~/components/landing/navbar/navbar';
 import { Footer } from '~/components/landing/footer/footer';
@@ -28,26 +28,37 @@ interface LayoutProps {
 
 export default component$<LayoutProps>(({ blok }) => {
     const globalConfig = useGlobalConfig();
-
-    // Mapeo de las redes sociales desde el bloque de Storyblok (si vinieran por props)
-    // Pero ahora probablemente queramos usar lo del globalConfig si no hay props específicas
-    // O mantener la lógica actual si layout recibe props de una ruta específica
-    const socialNetworks: SocialNetwork[] = blok?.social_networks?.map((sn: any) => ({
-        id: sn._uid,
-        platform: sn.platform,
-        url: sn.url,
-        iconName: sn.icon_name || 'default',
-    })) || [];
-
     const config = globalConfig.value;
+    console.log('globalConfig', config);
     const primaryColor = config?.primary_color?.color || '#0ea5e9'; // Fallback to sky-500
+
+    // Raw social networks from Storyblok for Footer (which will handle the raw shape)
+    const rawSocialNetworks = config?.social_networks || [];
+    console.log('rawSocialNetworks', rawSocialNetworks);
+    // Mapped social networks for Navbar (which expects the old SocialNetwork interface)
+    // We try to extract a usable URL and icon name
+    const socialNetworksNavbar: SocialNetwork[] = rawSocialNetworks.map((sn: any) => {
+        let url = "";
+        if (typeof sn.url === 'string') {
+            url = sn.url;
+        } else if (sn.url && typeof sn.url === 'object') {
+            url = sn.url.url || "";
+        }
+
+        return {
+            id: sn._uid,
+            platform: sn.platform || "default", // Use icon name as platform/label
+            url: url,
+            iconName: sn.icon_name || "default",
+        };
+    });
 
     return (
         <div style={{ '--primary-color': primaryColor }}>
             <Navbar
                 logo={config?.logo}
                 menuItems={config?.main_menu}
-                socialNetworks={socialNetworks}
+                socialNetworks={socialNetworksNavbar}
             />
             <main>
                 <Slot />
@@ -55,8 +66,9 @@ export default component$<LayoutProps>(({ blok }) => {
             <Footer
                 logo={config?.logo}
                 footerContent={config?.footer_content}
-                socialNetworks={socialNetworks}
-                email={blok?.email} // Keep existing if needed, or use from config if available
+                socialNetworks={rawSocialNetworks}
+                email={blok?.email}
+                mapUrl={config?.location_url}
             />
         </div>
     );
