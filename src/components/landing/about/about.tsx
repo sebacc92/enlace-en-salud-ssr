@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import DoctorArmsImg from "~/media/img/doctor-arms.jpg?jsx";
 import { StoryblokImage } from "~/components/ui/storyblok-image";
+import { Reveal } from "~/components/ui/reveal";
 
 export interface ImageFormat {
     url: string;
@@ -67,35 +68,39 @@ Entendemos la salud como un ecosistema complejo que requiere precisión y eficie
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
                     <div class="text-center lg:text-left">
-                        <h2 class="text-base font-semibold tracking-wide text-cyan-700 dark:text-cyan-400 uppercase">{tagline}</h2>
-                        <p class="mt-2 mb-6 text-3xl leading-8 font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-                            {heading}
-                        </p>
-                        <div class="prose prose-lg text-slate-600 dark:text-slate-300 mx-auto lg:mx-0">
-                            {renderDescription(description)}
-                        </div>
+                        <Reveal>
+                            <h2 class="text-base font-semibold tracking-wide text-cyan-700 dark:text-cyan-400 uppercase">{tagline}</h2>
+                            <p class="mt-2 mb-6 text-3xl leading-8 font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+                                {heading}
+                            </p>
+                            <div class="prose prose-lg text-slate-600 dark:text-slate-300 mx-auto lg:mx-0">
+                                {renderDescription(description)}
+                            </div>
+                        </Reveal>
                     </div>
                     <div class="mt-10 lg:mt-0 relative">
-                        <div class="rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 shadow-xl relative group">
-                            {imageUrl ? (
-                                <StoryblokImage
-                                    src={imageUrl}
-                                    alt={data?.image?.alternativeText || "Equipo médico profesional"}
-                                    width={data?.image?.width || 800}
-                                    height={data?.image?.height || 600}
-                                    class="object-cover object-top w-full h-full transition-transform duration-700 group-hover:scale-105"
-                                    priority={false}
-                                />
-                            ) : (
-                                <DoctorArmsImg
-                                    alt="Equipo médico profesional"
-                                    class="object-cover object-top w-full h-full transition-transform duration-700 group-hover:scale-105"
-                                />
-                            )}
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60"></div>
-                        </div>
-                        {/* Decorative elements */}
-                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-dots-pattern opacity-50"></div>
+                        <Reveal direction="right" delay={300}>
+                            <div class="rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 shadow-xl relative group">
+                                {imageUrl ? (
+                                    <StoryblokImage
+                                        src={imageUrl}
+                                        alt={data?.image?.alternativeText || "Equipo médico profesional"}
+                                        width={data?.image?.width || 800}
+                                        height={data?.image?.height || 600}
+                                        class="object-cover object-top w-full h-full transition-transform duration-700 group-hover:scale-105"
+                                        priority={false}
+                                    />
+                                ) : (
+                                    <DoctorArmsImg
+                                        alt="Equipo médico profesional"
+                                        class="object-cover object-top w-full h-full transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                )}
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60"></div>
+                            </div>
+                            {/* Decorative elements */}
+                            <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-dots-pattern opacity-50"></div>
+                        </Reveal>
                     </div>
                 </div>
             </div>
