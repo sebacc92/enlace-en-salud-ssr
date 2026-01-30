@@ -58,6 +58,8 @@ export default component$<LayoutProps>(({ blok }) => {
                 logo={config?.logo}
                 menuItems={config?.main_menu}
                 socialNetworks={socialNetworksNavbar}
+                logoHeightMobile={config?.logo_height_mobile || 40}
+                logoHeightDesktop={config?.logo_height_desktop || 64}
             />
             <main>
                 <Slot />

@@ -29,9 +29,11 @@ interface NavbarProps {
     socialNetworks?: SocialNetwork[];
     logo?: { filename: string; alt?: string };
     menuItems?: NavItem[];
+    logoHeightMobile?: number;
+    logoHeightDesktop?: number;
 }
 
-export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menuItems = [] }) => {
+export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menuItems = [], logoHeightMobile = 40, logoHeightDesktop = 64 }) => {
     const isOpen = useSignal(false);
 
     const getIcon = (iconName: string) => {
@@ -59,17 +61,24 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
                 <div class="flex justify-between items-center h-16">
                     {/* Logo */}
                     <div class="flex-shrink-0 flex items-center">
-                        <Link href="/" aria-label="Enlace en Salud - Ir a inicio">
+                        <Link
+                            href="/"
+                            aria-label="Enlace en Salud - Ir a inicio"
+                            style={{
+                                '--logo-h-mobile': `${logoHeightMobile}px`,
+                                '--logo-h-desktop': `${logoHeightDesktop}px`
+                            }}
+                        >
                             {logo?.filename ? (
                                 <img
                                     src={logo.filename}
                                     alt={logo.alt || "Enlace en Salud"}
-                                    class="h-12 w-auto md:h-16 object-contain"
+                                    class="w-auto h-[var(--logo-h-mobile)] md:h-[var(--logo-h-desktop)] transition-all duration-300 object-contain"
                                     width={150}
-                                    height={64}
+                                    height={logoHeightDesktop}
                                 />
                             ) : (
-                                <Logo class="h-12 w-auto md:h-16" />
+                                <Logo class="w-auto h-[var(--logo-h-mobile)] md:h-[var(--logo-h-desktop)] transition-all duration-300" />
                             )}
                         </Link>
                     </div>
