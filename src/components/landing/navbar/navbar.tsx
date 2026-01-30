@@ -1,7 +1,7 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import { LuMenu, LuX } from "@qwikest/icons/lucide";
-import Logo from "~/media/img/logo-web-es.svg?jsx";
+import Logo from "~/media/img/logo-web-es.png?jsx";
 import { ICON_REGISTRY } from "~/components/icons/registry";
 
 // Define locally to avoid circular deps with index
