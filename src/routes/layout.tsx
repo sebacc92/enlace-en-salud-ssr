@@ -1,10 +1,59 @@
 import { component$, Slot } from '@builder.io/qwik';
-import { routeLoader$ } from '@builder.io/qwik-city';
+import { routeLoader$, globalAction$, zod$, z } from '@builder.io/qwik-city';
+import { Resend } from 'resend';
 import { Navbar, type SocialNetwork } from '~/components/landing/navbar/navbar';
 import { Footer } from '~/components/landing/footer/footer';
 import { WhatsAppButton } from '~/components/ui/whatsapp-button';
 import { ScrollToTop } from '~/components/ui/scroll-to-top';
 import { storyblokApi } from '~/routes/plugin@storyblok';
+
+export const useSendContactEmail = globalAction$(async (datos, { env, fail }) => {
+    // 1. Verificamos que la API Key exista
+    const apiKey = env.get('RESEND_API_KEY');
+    if (!apiKey) {
+        console.error('Falta la API Key de Resend en .env.local');
+        return fail(500, { message: 'Error de configuración del servidor' });
+    }
+
+    const resend = new Resend(apiKey);
+
+    try {
+        // 2. Enviamos el email
+        const data = await resend.emails.send({
+            // IMPORTANTE: En modo prueba, SOLO puedes usar 'onboarding@resend.dev'
+            from: 'onboarding@resend.dev',
+
+            // IMPORTANTE: En modo prueba, SOLO puedes enviar emails a TU PROPIO correo (con el que te registraste)
+            to: 'sebastiancardoso92@gmail.com', // <--- Asegúrate de que este sea tu correo real
+
+            subject: `Nuevo contacto de: ${datos.nombre}`,
+            html: `
+        <h1>Nuevo mensaje desde Cleverisma</h1>
+        <p><strong>Nombre:</strong> ${datos.nombre}</p>
+        <p><strong>Email del cliente:</strong> ${datos.email}</p>
+        <p><strong>Mensaje:</strong></p>
+        <blockquote style="background: #f9f9f9; padding: 10px; border-left: 5px solid #ccc;">
+          ${datos.mensaje}
+        </blockquote>
+      `,
+        });
+
+        if (data.error) {
+            console.error('Error Resend:', data.error);
+            return fail(500, { message: 'No se pudo enviar el correo.' });
+        }
+
+        return { success: true };
+
+    } catch (error) {
+        console.error('Error interno:', error);
+        return fail(500, { message: 'Ocurrió un error inesperado.' });
+    }
+}, zod$({
+    nombre: z.string().min(2, 'Tu nombre es muy corto'),
+    email: z.string().email('Ingresa un email válido'),
+    mensaje: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres'),
+}));
 
 export const useGlobalConfig = routeLoader$(async () => {
     try {

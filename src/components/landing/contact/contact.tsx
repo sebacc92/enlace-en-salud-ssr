@@ -1,5 +1,7 @@
-import { component$, useSignal, $ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
+import { Form } from "@builder.io/qwik-city";
 import { LuMail, LuGlobe } from "@qwikest/icons/lucide";
+import { useSendContactEmail } from "~/routes/layout";
 
 export interface ContactProps {
     title?: string;
@@ -19,15 +21,7 @@ export const Contact = component$<ContactProps>(({
     // locationUrl
 }) => {
     const contactEmail = email || "comercial@enlacesalud.com.ar";
-    const formStatus = useSignal<'idle' | 'submitting' | 'success'>('idle');
-
-    const handleSubmit = $(() => {
-        formStatus.value = 'submitting';
-        // Simulate API call
-        setTimeout(() => {
-            formStatus.value = 'success';
-        }, 1000);
-    });
+    const action = useSendContactEmail();
 
     return (
         <section id="contacto" class="py-16 md:py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
@@ -44,7 +38,7 @@ export const Contact = component$<ContactProps>(({
                 <div class="max-w-3xl mx-auto">
                     {/* Form Section - Centered since Map is gone */}
                     <div class="bg-gray-50 dark:bg-slate-900/50 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-lg">
-                        {formStatus.value === 'success' ? (
+                        {action.value?.success ? (
                             <div class="text-center py-12">
                                 <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,44 +49,50 @@ export const Contact = component$<ContactProps>(({
                                 <p class="text-slate-600 dark:text-slate-400">
                                     {successMessage || "Gracias por contactarnos. Te responderemos a la brevedad."}
                                 </p>
-                                <button
-                                    onClick$={() => formStatus.value = 'idle'}
-                                    class="mt-6 text-primary hover:text-primary/80 font-medium"
-                                >
-                                    Enviar otro mensaje
-                                </button>
+                                {/* No 'reset' button easily available without navigation or JS, but Form submission resets typically or stays. 
+                                    For now, we just show success message. 
+                                */}
                             </div>
                         ) : (
-                            <form class="space-y-6" preventdefault:submit onSubmit$={handleSubmit}>
+                            <Form class="space-y-6" action={action}>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Nombre</label>
                                         <input
+                                            name="nombre"
                                             type="text"
                                             placeholder="Tu nombre"
                                             class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                                         />
+                                        {action.value?.fieldErrors?.nombre && <p class="text-red-500 text-sm mt-1">{action.value.fieldErrors.nombre}</p>}
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email</label>
                                         <input
+                                            name="email"
                                             type="email"
                                             placeholder="tu@email.com"
                                             class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                                         />
+                                        {action.value?.fieldErrors?.email && <p class="text-red-500 text-sm mt-1">{action.value.fieldErrors.email}</p>}
                                     </div>
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Mensaje</label>
                                     <textarea
+                                        name="mensaje"
                                         rows={4}
                                         placeholder="¿En qué podemos ayudarte?"
                                         class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
                                     ></textarea>
+                                    {action.value?.fieldErrors?.mensaje && <p class="text-red-500 text-sm mt-1">{action.value.fieldErrors.mensaje}</p>}
                                 </div>
 
-                                {/* Captcha Placeholder */}
+                                {/* Global Error Message */}
+                                {action.value?.failed && <p class="text-red-600 font-bold bg-red-100 p-2 rounded">{action.value.message}</p>}
+
+                                {/* Captcha Placeholder - Still just ui for now or integrated? User didn't ask for real captcha logic update, assume just UI for now or kept as is. */}
                                 <div class="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-3 flex items-center gap-3 w-fit">
                                     <div class="w-6 h-6 border-2 border-slate-300 rounded sm:w-5 sm:h-5 bg-white"></div>
                                     <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Protegido por ReCaptcha</span>
@@ -100,12 +100,12 @@ export const Contact = component$<ContactProps>(({
 
                                 <button
                                     type="submit"
-                                    disabled={formStatus.value === 'submitting'}
+                                    disabled={action.isRunning}
                                     class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-4 rounded-xl transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
-                                    {formStatus.value === 'submitting' ? 'Enviando...' : buttonLabel}
+                                    {action.isRunning ? 'Enviando...' : buttonLabel}
                                 </button>
-                            </form>
+                            </Form>
                         )}
 
                         {/* Quick Contact Info */}
