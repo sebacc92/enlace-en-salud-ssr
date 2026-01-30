@@ -3,6 +3,7 @@ import { routeLoader$ } from '@builder.io/qwik-city';
 import { Navbar, type SocialNetwork } from '~/components/landing/navbar/navbar';
 import { Footer } from '~/components/landing/footer/footer';
 import { WhatsAppButton } from '~/components/ui/whatsapp-button';
+import { ScrollToTop } from '~/components/ui/scroll-to-top';
 import { storyblokApi } from '~/routes/plugin@storyblok';
 
 export const useGlobalConfig = routeLoader$(async () => {
@@ -73,6 +74,7 @@ export default component$<LayoutProps>(() => {
                 phone={config?.whatsapp_number}
                 message={config?.whatsapp_message}
             />
+            <ScrollToTop />
         </div>
     );
 });
