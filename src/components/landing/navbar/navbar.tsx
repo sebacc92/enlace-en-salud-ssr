@@ -103,7 +103,6 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
                         <div class="flex items-center space-x-4 ml-4 pl-4 border-l border-slate-200 dark:border-slate-700">
                             {socialNetworks.map((social) => {
                                 const IconComponent = getIcon(social.iconName);
-                                console.log('############# social', social);
                                 return (
                                     <a
                                         key={social.id}

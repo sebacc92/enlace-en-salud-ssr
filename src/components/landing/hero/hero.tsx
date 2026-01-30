@@ -46,8 +46,8 @@ export const Hero = component$<HeroProps>(({ data }) => {
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12 items-center">
-                    <div class="max-w-3xl mx-auto lg:mx-0 text-center lg:text-left mb-12 lg:mb-0">
-                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-8">
+                    <div class="max-w-3xl mx-auto lg:mx-0 flex flex-col items-center lg:items-start text-center lg:text-left mb-12 lg:mb-0">
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-8 mt-8 lg:mt-0">
                             {renderHeading(data.heading)}
                         </h1>
 

@@ -58,7 +58,7 @@ export const Services = component$<ServicesProps>(({ data }) => {
                         return (
                             <Card.Root
                                 key={index}
-                                class="hover:shadow-md transition-shadow duration-300"
+                                class="hover:shadow-md transition-shadow duration-300 text-center"
                             >
                                 <Card.Header>
                                     <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4">

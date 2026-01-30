@@ -2,6 +2,7 @@ import { component$, Slot } from '@builder.io/qwik';
 import { routeLoader$ } from '@builder.io/qwik-city';
 import { Navbar, type SocialNetwork } from '~/components/landing/navbar/navbar';
 import { Footer } from '~/components/landing/footer/footer';
+import { Contact } from '~/components/landing/contact/contact';
 import { storyblokApi } from '~/routes/plugin@storyblok';
 
 export const useGlobalConfig = routeLoader$(async () => {
@@ -29,12 +30,10 @@ interface LayoutProps {
 export default component$<LayoutProps>(({ blok }) => {
     const globalConfig = useGlobalConfig();
     const config = globalConfig.value;
-    console.log('globalConfig', config);
     const primaryColor = config?.primary_color?.color || '#0ea5e9'; // Fallback to sky-500
 
     // Raw social networks from Storyblok for Footer (which will handle the raw shape)
     const rawSocialNetworks = config?.social_networks || [];
-    console.log('rawSocialNetworks', rawSocialNetworks);
     // Mapped social networks for Navbar (which expects the old SocialNetwork interface)
     // We try to extract a usable URL and icon name
     const socialNetworksNavbar: SocialNetwork[] = rawSocialNetworks.map((sn: any) => {
@@ -63,12 +62,14 @@ export default component$<LayoutProps>(({ blok }) => {
             <main>
                 <Slot />
             </main>
+            <Contact
+                mapUrl={config?.location_url}
+                email={blok?.email}
+            />
             <Footer
                 logo={config?.logo}
                 footerContent={config?.footer_content}
                 socialNetworks={rawSocialNetworks}
-                email={blok?.email}
-                mapUrl={config?.location_url}
             />
         </div>
     );

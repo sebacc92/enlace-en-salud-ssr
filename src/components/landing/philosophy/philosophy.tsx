@@ -82,13 +82,13 @@ export const Philosophy = component$<PhilosophyProps>(({ data }) => {
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-8 mb-16 items-center">
                     <div class="space-y-8">
-                        <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border-l-4 border-cyan-500">
+                        <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border-l-4 border-cyan-500 text-center lg:text-left">
                             <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">{missionTitle}</h3>
                             <p class="text-lg text-slate-600 dark:text-slate-300">
                                 {missionText}
                             </p>
                         </div>
-                        <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border-l-4 border-blue-600">
+                        <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border-l-4 border-blue-600 text-center lg:text-left">
                             <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">{visionTitle}</h3>
                             <p class="text-lg text-slate-600 dark:text-slate-300">
                                 {visionText}
@@ -101,6 +101,8 @@ export const Philosophy = component$<PhilosophyProps>(({ data }) => {
                             <img
                                 src={imageUrl}
                                 alt={data?.featuredImage?.alternativeText || "Compromiso y cuidado humano"}
+                                width={data?.featuredImage?.width}
+                                height={data?.featuredImage?.height}
                                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                         ) : (

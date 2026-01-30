@@ -66,12 +66,12 @@ Entendemos la salud como un ecosistema complejo que requiere precisión y eficie
         <section id="nosotros" class="py-20 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-                    <div>
+                    <div class="text-center lg:text-left">
                         <h2 class="text-base font-semibold tracking-wide text-cyan-700 dark:text-cyan-400 uppercase">{tagline}</h2>
                         <p class="mt-2 mb-6 text-3xl leading-8 font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
                             {heading}
                         </p>
-                        <div class="prose prose-lg text-slate-600 dark:text-slate-300">
+                        <div class="prose prose-lg text-slate-600 dark:text-slate-300 mx-auto lg:mx-0">
                             {renderDescription(description)}
                         </div>
                     </div>

@@ -82,7 +82,7 @@ export const Model = component$<ModelProps>(({ data }) => {
     return (
         <section id="modelo" class="py-20 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="lg:text-center max-w-3xl mx-auto mb-16">
+                <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-base font-semibold tracking-wide text-cyan-700 dark:text-cyan-400 uppercase">{tagline}</h2>
                     <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
                         {heading}
@@ -93,15 +93,15 @@ export const Model = component$<ModelProps>(({ data }) => {
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                    <Card.Root class="p-8 lg:p-12 flex flex-col justify-center">
+                    <Card.Root class="p-8 lg:p-12 flex flex-col justify-center text-center lg:text-left">
                         <Card.Header class="p-0 mb-6">
                             <Card.Title class="text-2xl font-bold">{benefitsTitle}</Card.Title>
                         </Card.Header>
                         <Card.Content class="p-0">
                             <ul class="space-y-4">
                                 {benefits.map((benefit, index) => (
-                                    <li key={index} class="flex items-start">
-                                        <LuCheckCircle2 class="h-6 w-6 text-primary mr-3 flex-shrink-0" />
+                                    <li key={index} class="flex items-center lg:items-start flex-col lg:flex-row">
+                                        <LuCheckCircle2 class="h-6 w-6 text-primary mb-2 lg:mb-0 lg:mr-3 flex-shrink-0" />
                                         <span class="text-lg text-muted-foreground">{benefit}</span>
                                     </li>
                                 ))}
