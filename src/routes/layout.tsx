@@ -2,6 +2,7 @@ import { component$, Slot } from '@builder.io/qwik';
 import { routeLoader$ } from '@builder.io/qwik-city';
 import { Navbar, type SocialNetwork } from '~/components/landing/navbar/navbar';
 import { Footer } from '~/components/landing/footer/footer';
+import { WhatsAppButton } from '~/components/ui/whatsapp-button';
 import { storyblokApi } from '~/routes/plugin@storyblok';
 
 export const useGlobalConfig = routeLoader$(async () => {
@@ -67,6 +68,10 @@ export default component$<LayoutProps>(() => {
                 logo={config?.logo}
                 footerContent={config?.footer_content}
                 socialNetworks={rawSocialNetworks}
+            />
+            <WhatsAppButton
+                phone={config?.whatsapp_number}
+                message={config?.whatsapp_message}
             />
         </div>
     );
