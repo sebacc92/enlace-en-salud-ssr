@@ -2,7 +2,6 @@ import { component$, Slot } from '@builder.io/qwik';
 import { routeLoader$ } from '@builder.io/qwik-city';
 import { Navbar, type SocialNetwork } from '~/components/landing/navbar/navbar';
 import { Footer } from '~/components/landing/footer/footer';
-import { Contact } from '~/components/landing/contact/contact';
 import { storyblokApi } from '~/routes/plugin@storyblok';
 
 export const useGlobalConfig = routeLoader$(async () => {
@@ -27,7 +26,7 @@ interface LayoutProps {
     blok?: any; // Datos provenientes de Storyblok
 }
 
-export default component$<LayoutProps>(({ blok }) => {
+export default component$<LayoutProps>(() => {
     const globalConfig = useGlobalConfig();
     const config = globalConfig.value;
     const primaryColor = config?.primary_color?.color || '#0ea5e9'; // Fallback to sky-500
@@ -64,10 +63,6 @@ export default component$<LayoutProps>(({ blok }) => {
             <main>
                 <Slot />
             </main>
-            <Contact
-                mapUrl={config?.location_url}
-                email={blok?.email}
-            />
             <Footer
                 logo={config?.logo}
                 footerContent={config?.footer_content}

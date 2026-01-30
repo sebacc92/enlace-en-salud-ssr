@@ -12,6 +12,7 @@ import ModelWrapper from "./model";
 import PhilosophyWrapper from "./philosophy";
 import TargetWrapper from "./target";
 import MapWrapper from "./map";
+import ContactWrapper from "./contact-section";
 
 
 interface Props {
@@ -28,6 +29,7 @@ const Components: any = {
   'philosophy': PhilosophyWrapper,
   'target-audience': TargetWrapper,
   'map': MapWrapper,
+  'contact_section': ContactWrapper,
 };
 
 export default component$<Props>((props) => {
