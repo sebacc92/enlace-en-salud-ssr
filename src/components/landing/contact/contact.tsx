@@ -73,6 +73,8 @@ export const Contact = component$<ContactProps>(({
         };
     });
 
+    const PUBLIC_TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY
+
     return (
         <section id="contacto" class="py-16 md:py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -145,7 +147,7 @@ export const Contact = component$<ContactProps>(({
                                 {/* Turnstile Widget */}
                                 <div
                                     class="cf-turnstile"
-                                    data-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
+                                    data-sitekey={PUBLIC_TURNSTILE_SITE_KEY}
                                     data-theme="light"
                                     data-action="contact"
                                     data-size="normal"
