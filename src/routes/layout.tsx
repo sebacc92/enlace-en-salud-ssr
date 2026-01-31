@@ -7,7 +7,36 @@ import { ScrollToTop } from '~/components/ui/scroll-to-top';
 import { storyblokApi } from '~/routes/plugin@storyblok';
 
 export const useSendContactEmail = globalAction$(async (datos, { env, fail }) => {
-    // 1. Verificamos que la API Key exista
+    // 1. Validar Token de Turnstile
+    const token = (datos as any)['cf-turnstile-response'];
+    if (!token) {
+        return fail(400, { message: 'Por favor, completa la verificación de seguridad.' });
+    }
+
+    const secretKey = env.get('TURNSTILE_SECRET_KEY');
+    if (!secretKey) {
+        console.error('Falta TURNSTILE_SECRET_KEY en .env.local');
+        return fail(500, { message: 'Error de configuración del servidor' });
+    }
+
+    const verifyResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            secret: secretKey,
+            response: token,
+        }),
+    });
+
+    const verifyResult = await verifyResponse.json();
+    if (!verifyResult.success) {
+        console.error('Turnstile verification failed:', verifyResult);
+        return fail(400, { message: 'Verificación de seguridad fallida. Intenta nuevamente.' });
+    }
+
+    // 2. Verificamos que la API Key de Resend exista
     const apiKey = env.get('RESEND_API_KEY');
     if (!apiKey) {
         console.error('Falta la API Key de Resend en .env.local');

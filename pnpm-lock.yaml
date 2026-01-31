@@ -83,6 +83,9 @@ importers:
       qs:
         specifier: ^6.14.1
         version: 6.14.1
+      qwik-turnstile:
+        specifier: ^0.0.3
+        version: 0.0.3(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0)(yaml@2.8.2)))
       qwik-ui:
         specifier: ^0.4.3
         version: 0.4.3(nx@22.4.4)
@@ -5523,6 +5526,12 @@ packages:
   qwik-themes@0.2.0:
     resolution: {integrity: sha512-lwqDGD6Z+IpX/vOJh2SuzWBmafYM4+6cbASGJNkdfR6jfaCJm6iKvHRGrom0xDvdTO3G9w+rnaSkN0hrkSL69w==}
     engines: {node: '>=18.0.0'}
+
+  qwik-turnstile@0.0.3:
+    resolution: {integrity: sha512-kVy/o7j41d+dv03Vs3OgQ8Gqe8bUbEqU/he31sPI1sDlpPu5TO49KTTb/VZg6D2sghYEz8VV6MgIihhztgWvig==}
+    engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
+    peerDependencies:
+      '@builder.io/qwik': '>=1.0.0'
 
   qwik-ui@0.4.3:
     resolution: {integrity: sha512-P55zgt26VM1dT9RZUIadr3lno35k89RESNrcVOD1D9K1X8wKEgacshUKyycrR6rM8NjPOmJmg27oYncB2kpnqA==}
@@ -12688,6 +12697,10 @@ snapshots:
   quick-lru@5.1.1: {}
 
   qwik-themes@0.2.0: {}
+
+  qwik-turnstile@0.0.3(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0)(yaml@2.8.2))):
+    dependencies:
+      '@builder.io/qwik': 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0)(yaml@2.8.2))
 
   qwik-ui@0.4.3(nx@22.4.4):
     dependencies:

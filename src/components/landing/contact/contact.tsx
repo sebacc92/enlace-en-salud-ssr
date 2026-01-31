@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$, $ } from "@builder.io/qwik";
 import { Form } from "@builder.io/qwik-city";
 import { LuMail, LuGlobe } from "@qwikest/icons/lucide";
 import { useSendContactEmail } from "~/routes/layout";
@@ -22,6 +22,56 @@ export const Contact = component$<ContactProps>(({
 }) => {
     const contactEmail = email || "comercial@enlacesalud.com.ar";
     const action = useSendContactEmail();
+
+    const turnstileLoaded = useSignal(false);
+    const formRef = useSignal<Element>();
+
+    const loadTurnstile = $(() => {
+        if (turnstileLoaded.value) return;
+        if (typeof window !== 'undefined' && !document.querySelector('script[src*="turnstile"]')) {
+            const script = document.createElement('script');
+            script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+            script.async = true;
+            script.defer = true;
+            // Usar requestAnimationFrame para evitar reflow forzado
+            requestAnimationFrame(() => {
+                document.head.appendChild(script);
+                turnstileLoaded.value = true;
+            });
+        }
+    });
+
+    // eslint-disable-next-line qwik/no-use-visible-task
+    useVisibleTask$(({ track }) => {
+        // Track el formRef para que se ejecute cuando esté disponible
+        track(() => formRef.value);
+
+        const formElement = formRef.value;
+        if (!formElement) return;
+
+        // Usar Intersection Observer para cargar solo cuando sea necesario
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    loadTurnstile();
+                    // Desconectar después de cargar
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: '200px' } // Cargar 200px antes de que sea visible
+        );
+
+        observer.observe(formElement);
+
+        // También cargar al hacer focus en cualquier input del formulario
+        const handleFocus = () => loadTurnstile();
+        formElement.addEventListener('focus', handleFocus, { once: true, capture: true });
+
+        return () => {
+            observer.disconnect();
+            formElement.removeEventListener('focus', handleFocus, { capture: true });
+        };
+    });
 
     return (
         <section id="contacto" class="py-16 md:py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
@@ -54,7 +104,7 @@ export const Contact = component$<ContactProps>(({
                                 */}
                             </div>
                         ) : (
-                            <Form class="space-y-6" action={action}>
+                            <Form class="space-y-6" action={action} ref={formRef}>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Nombre</label>
@@ -92,11 +142,15 @@ export const Contact = component$<ContactProps>(({
                                 {/* Global Error Message */}
                                 {action.value?.failed && <p class="text-red-600 font-bold bg-red-100 p-2 rounded">{action.value.message}</p>}
 
-                                {/* Captcha Placeholder - Still just ui for now or integrated? User didn't ask for real captcha logic update, assume just UI for now or kept as is. */}
-                                <div class="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-3 flex items-center gap-3 w-fit">
-                                    <div class="w-6 h-6 border-2 border-slate-300 rounded sm:w-5 sm:h-5 bg-white"></div>
-                                    <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Protegido por ReCaptcha</span>
-                                </div>
+                                {/* Turnstile Widget */}
+                                <div
+                                    class="cf-turnstile"
+                                    data-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
+                                    data-theme="light"
+                                    data-action="contact"
+                                    data-size="normal"
+                                    data-cdata="contact-form"
+                                ></div>
 
                                 <button
                                     type="submit"
