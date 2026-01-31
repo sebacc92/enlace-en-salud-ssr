@@ -1,6 +1,5 @@
 import { component$, Slot } from '@builder.io/qwik';
 import { routeLoader$, globalAction$, zod$, z } from '@builder.io/qwik-city';
-import { Resend } from 'resend';
 import { Navbar, type SocialNetwork } from '~/components/landing/navbar/navbar';
 import { Footer } from '~/components/landing/footer/footer';
 import { WhatsAppButton } from '~/components/ui/whatsapp-button';
@@ -15,31 +14,37 @@ export const useSendContactEmail = globalAction$(async (datos, { env, fail }) =>
         return fail(500, { message: 'Error de configuración del servidor' });
     }
 
-    const resend = new Resend(apiKey);
-
+    // 2. Enviamos el email usando fetch nativo (Edge compatible)
     try {
-        // 2. Enviamos el email
-        const data = await resend.emails.send({
-            // IMPORTANTE: En modo prueba, SOLO puedes usar 'onboarding@resend.dev'
-            from: 'onboarding@resend.dev',
+        const response = await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`,
+            },
+            body: JSON.stringify({
+                // IMPORTANTE: En modo prueba, SOLO puedes usar 'onboarding@resend.dev'
+                from: 'onboarding@resend.dev',
 
-            // IMPORTANTE: En modo prueba, SOLO puedes enviar emails a TU PROPIO correo (con el que te registraste)
-            to: 'sebastiancardoso92@gmail.com', // <--- Asegúrate de que este sea tu correo real
+                // IMPORTANTE: En modo prueba, SOLO puedes enviar emails a TU PROPIO correo (con el que te registraste)
+                to: 'sebastiancardoso92@gmail.com',
 
-            subject: `Nuevo contacto de: ${datos.nombre}`,
-            html: `
-        <h1>Nuevo mensaje desde Cleverisma</h1>
-        <p><strong>Nombre:</strong> ${datos.nombre}</p>
-        <p><strong>Email del cliente:</strong> ${datos.email}</p>
-        <p><strong>Mensaje:</strong></p>
-        <blockquote style="background: #f9f9f9; padding: 10px; border-left: 5px solid #ccc;">
-          ${datos.mensaje}
-        </blockquote>
-      `,
+                subject: `Nuevo contacto de: ${datos.nombre}`,
+                html: `
+            <h1>Nuevo mensaje desde Cleverisma</h1>
+            <p><strong>Nombre:</strong> ${datos.nombre}</p>
+            <p><strong>Email del cliente:</strong> ${datos.email}</p>
+            <p><strong>Mensaje:</strong></p>
+            <blockquote style="background: #f9f9f9; padding: 10px; border-left: 5px solid #ccc;">
+            ${datos.mensaje}
+            </blockquote>
+        `,
+            }),
         });
 
-        if (data.error) {
-            console.error('Error Resend:', data.error);
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error('Error Resend API:', errorData);
             return fail(500, { message: 'No se pudo enviar el correo.' });
         }
 
