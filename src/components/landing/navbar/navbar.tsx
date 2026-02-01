@@ -76,6 +76,7 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
                                     class="w-auto h-[var(--logo-h-mobile)] md:h-[var(--logo-h-desktop)] transition-all duration-300 object-contain"
                                     width={150}
                                     height={logoHeightDesktop}
+                                    fetchPriority="high"
                                 />
                             ) : (
                                 <Logo class="w-auto h-[var(--logo-h-mobile)] md:h-[var(--logo-h-desktop)] transition-all duration-300" />

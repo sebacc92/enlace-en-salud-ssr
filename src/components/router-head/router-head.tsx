@@ -19,6 +19,9 @@ export const RouterHead = component$(() => {
       <link rel="shortcut icon" href="/favicon.ico" />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
+      <link rel="preconnect" href="https://a.storyblok.com" />
+      <link rel="dns-prefetch" href="https://a.storyblok.com" />
+
       {head.meta.map((m) => (
         <meta key={m.key} {...m} />
       ))}

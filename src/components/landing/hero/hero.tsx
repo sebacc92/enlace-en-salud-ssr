@@ -70,10 +70,10 @@ export const Hero = component$<HeroProps>(({ data }) => {
                                 <Button
                                     look="primary"
                                     size="lg"
-                                    class="flex items-center gap-3 cursor-pointer border-2 border-transparent shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all duration-300"
+                                    class="flex items-center gap-3 cursor-pointer border-0 bg-gradient-to-r from-[--primary] to-[#006080] text-white shadow-lg shadow-primary/40 hover:shadow-primary/60 hover:to-[#005070] hover:-translate-y-1 transition-all duration-300 font-bold tracking-wide uppercase"
                                 >
                                     <span>{data.link.label}</span>
-                                    <LuCalendarDays class="w-5 h-5 stroke-black" />
+                                    <LuCalendarDays class="w-5 h-5 stroke-white" />
                                 </Button>
 
                             </a>

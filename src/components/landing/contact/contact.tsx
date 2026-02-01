@@ -157,7 +157,7 @@ export const Contact = component$<ContactProps>(({
                                 <button
                                     type="submit"
                                     disabled={action.isRunning}
-                                    class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-4 rounded-xl transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
+                                    class="w-full bg-gradient-to-r from-[#007EA7] to-[#006080] hover:to-[#005070] text-white font-bold tracking-wide uppercase py-4 rounded-xl transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
                                     {action.isRunning ? 'Enviando...' : buttonLabel}
                                 </button>

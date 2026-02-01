@@ -73,7 +73,7 @@ export const Footer = component$<FooterProps>(({ socialNetworks = [], logo, foot
                     </div>
 
                     {/* Copyright */}
-                    <div class="text-xs text-slate-500 pt-8 border-t border-slate-900 w-full max-w-2xl">
+                    <div class="text-xs text-slate-400 pt-8 border-t border-slate-900 w-full max-w-2xl">
                         &copy; {new Date().getFullYear()} Enlace en Salud. Todos los derechos reservados.
                     </div>
 
