@@ -54,7 +54,7 @@ Entendemos la salud como un ecosistema complejo que requiere precisión y eficie
             const parts = paragraph.split('**');
             const renderedParts = parts.map((part, index) => {
                 if (index % 2 === 1) {
-                    return <span key={`${pIndex}-${index}`} class="font-semibold text-cyan-700 dark:text-cyan-400">{part}</span>;
+                    return <span key={`${pIndex}-${index}`} class="font-semibold text-primary">{part}</span>;
                 }
                 return <span key={`${pIndex}-${index}`}>{part}</span>;
             });
@@ -69,7 +69,7 @@ Entendemos la salud como un ecosistema complejo que requiere precisión y eficie
                 <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
                     <div class="text-center lg:text-left">
                         <Reveal>
-                            <h2 class="text-base font-semibold tracking-wide text-cyan-700 dark:text-cyan-400 uppercase">{tagline}</h2>
+                            <h2 class="text-base font-semibold tracking-wide text-primary uppercase">{tagline}</h2>
                             <p class="mt-2 mb-6 text-3xl leading-8 font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
                                 {heading}
                             </p>

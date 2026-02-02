@@ -45,7 +45,7 @@ export const Services = component$<ServicesProps>(({ data }) => {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <Reveal>
-                        <h2 class="text-base font-semibold tracking-wide text-cyan-700 dark:text-cyan-400 uppercase">{tagline}</h2>
+                        <h2 class="text-base font-semibold tracking-wide text-primary uppercase">{tagline}</h2>
                         <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
                             {heading}
                         </p>
