@@ -58,7 +58,7 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
     return (
         <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 dark:bg-slate-950/90 dark:border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-16 md:h-auto md:py-2">
+                <div class="flex justify-between items-center h-14 md:h-auto md:py-2">
                     {/* Logo */}
                     <div class="flex-shrink-0 flex items-center">
                         <Link
@@ -133,7 +133,7 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
                     <div class="md:hidden flex items-center">
                         <button
                             onClick$={() => (isOpen.value = !isOpen.value)}
-                            class="text-muted-foreground hover:text-primary focus:outline-none"
+                            class="text-slate-700 dark:text-slate-200 hover:text-primary focus:outline-none p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                             aria-label="Toggle menu"
                         >
                             {isOpen.value ? <LuX class="w-6 h-6" /> : <LuMenu class="w-6 h-6" />}

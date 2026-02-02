@@ -27,7 +27,7 @@ export const Target = component$<TargetProps>(({ data }) => {
     };
 
     return (
-        <section class="py-20 bg-white dark:bg-slate-900">
+        <section class="py-12 md:py-16 lg:py-20 bg-white dark:bg-slate-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl mb-12">
                     {heading}

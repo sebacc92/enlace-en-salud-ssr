@@ -41,7 +41,7 @@ export const Services = component$<ServicesProps>(({ data }) => {
     const services = data?.service_cards || [];
 
     return (
-        <section id="servicios" class="py-20 bg-slate-50 dark:bg-slate-950">
+        <section id="servicios" class="py-12 md:py-16 lg:py-20 bg-slate-50 dark:bg-slate-950">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <Reveal>
@@ -67,10 +67,10 @@ export const Services = component$<ServicesProps>(({ data }) => {
                                         <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4">
                                             {IconComponent && <IconComponent class="w-6 h-6" />}
                                         </div>
-                                        <Card.Title class="text-xl">{service.title}</Card.Title>
+                                        <Card.Title class="text-xl text-slate-900 dark:text-white">{service.title}</Card.Title>
                                     </Card.Header>
                                     <Card.Content>
-                                        <Card.Description class="text-base leading-relaxed">
+                                        <Card.Description class="text-base leading-relaxed text-slate-700 dark:text-slate-300">
                                             {service.description}
                                         </Card.Description>
                                     </Card.Content>

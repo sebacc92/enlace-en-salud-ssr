@@ -80,7 +80,7 @@ export const Model = component$<ModelProps>(({ data }) => {
     };
 
     return (
-        <section id="modelo" class="py-20 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+        <section id="modelo" class="py-12 md:py-16 lg:py-20 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-base font-semibold tracking-wide text-cyan-700 dark:text-cyan-400 uppercase">{tagline}</h2>

@@ -1,8 +1,15 @@
-import { component$, useSignal, useVisibleTask$, $ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { Form } from "@builder.io/qwik-city";
 import { LuMail, LuGlobe } from "@qwikest/icons/lucide";
 import { useSendContactEmail } from "~/routes/layout";
 import { Button } from "~/components/ui/button/button";
+
+// Definimos la interfaz para window.turnstile para TypeScript
+declare global {
+    interface Window {
+        turnstile: any;
+    }
+}
 
 export interface ContactProps {
     title?: string;
@@ -10,7 +17,7 @@ export interface ContactProps {
     buttonLabel?: string;
     successMessage?: string;
     email?: string;
-    locationUrl?: string; // Optional if needed for linking, but map logic removed
+    locationUrl?: string;
 }
 
 export const Contact = component$<ContactProps>(({
@@ -19,62 +26,50 @@ export const Contact = component$<ContactProps>(({
     buttonLabel = "Enviar Mensaje",
     successMessage = "¡Mensaje enviado con éxito!",
     email,
-    // locationUrl
 }) => {
     const contactEmail = email || "comercial@enlacesalud.com.ar";
     const action = useSendContactEmail();
-
-    const turnstileLoaded = useSignal(false);
-    const formRef = useSignal<Element>();
-
-    const loadTurnstile = $(() => {
-        if (turnstileLoaded.value) return;
-        if (typeof window !== 'undefined' && !document.querySelector('script[src*="turnstile"]')) {
-            const script = document.createElement('script');
-            script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-            script.async = true;
-            script.defer = true;
-            // Usar requestAnimationFrame para evitar reflow forzado
-            requestAnimationFrame(() => {
-                document.head.appendChild(script);
-                turnstileLoaded.value = true;
-            });
-        }
-    });
+    const containerRef = useSignal<HTMLElement>();
+    // Usamos un signal para guardar el token explícitamente
+    const turnstileToken = useSignal('');
 
     // eslint-disable-next-line qwik/no-use-visible-task
     useVisibleTask$(({ track }) => {
-        // Track el formRef para que se ejecute cuando esté disponible
-        track(() => formRef.value);
+        track(() => containerRef.value);
 
-        const formElement = formRef.value;
-        if (!formElement) return;
+        if (typeof window === 'undefined' || !containerRef.value) return;
 
-        // Usar Intersection Observer para cargar solo cuando sea necesario
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting) {
-                    loadTurnstile();
-                    // Desconectar después de cargar
-                    observer.disconnect();
-                }
-            },
-            { rootMargin: '200px' } // Cargar 200px antes de que sea visible
-        );
-
-        observer.observe(formElement);
-
-        // También cargar al hacer focus en cualquier input del formulario
-        const handleFocus = () => loadTurnstile();
-        formElement.addEventListener('focus', handleFocus, { once: true, capture: true });
-
-        return () => {
-            observer.disconnect();
-            formElement.removeEventListener('focus', handleFocus, { capture: true });
+        // Función para renderizar el widget
+        const renderWidget = () => {
+            if (window.turnstile) {
+                window.turnstile.render(containerRef.value, {
+                    sitekey: import.meta.env.PUBLIC_TURNSTILE_SITE_KEY,
+                    theme: 'light',
+                    callback: function (token: string) {
+                        console.log('Turnstile success:', token);
+                        turnstileToken.value = token;
+                    },
+                    'expired-callback': function () {
+                        turnstileToken.value = ''; // Limpiar si expira
+                    },
+                });
+            }
         };
-    });
 
-    const PUBLIC_TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY
+        // Inyectar el script si no existe
+        if (!document.getElementById('turnstile-script')) {
+            const script = document.createElement('script');
+            script.id = 'turnstile-script';
+            script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+            script.async = true;
+            script.defer = true;
+            script.onload = renderWidget;
+            document.head.appendChild(script);
+        } else {
+            // Si ya existe (ej. navegación SPA), solo renderizamos
+            renderWidget();
+        }
+    });
 
     return (
         <section id="contacto" class="py-16 md:py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
@@ -89,7 +84,6 @@ export const Contact = component$<ContactProps>(({
                 </div>
 
                 <div class="max-w-3xl mx-auto">
-                    {/* Form Section - Centered since Map is gone */}
                     <div class="bg-gray-50 dark:bg-slate-900/50 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-lg">
                         {action.value?.success ? (
                             <div class="text-center py-12">
@@ -102,12 +96,9 @@ export const Contact = component$<ContactProps>(({
                                 <p class="text-slate-600 dark:text-slate-400">
                                     {successMessage || "Gracias por contactarnos. Te responderemos a la brevedad."}
                                 </p>
-                                {/* No 'reset' button easily available without navigation or JS, but Form submission resets typically or stays. 
-                                    For now, we just show success message. 
-                                */}
                             </div>
                         ) : (
-                            <Form class="space-y-6" action={action} ref={formRef}>
+                            <Form class="space-y-6" action={action}>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Nombre</label>
@@ -145,20 +136,20 @@ export const Contact = component$<ContactProps>(({
                                 {/* Global Error Message */}
                                 {action.value?.failed && <p class="text-red-600 font-bold bg-red-100 p-2 rounded">{action.value.message}</p>}
 
-                                {/* Turnstile Widget */}
-                                <div
-                                    class="cf-turnstile"
-                                    data-sitekey={PUBLIC_TURNSTILE_SITE_KEY}
-                                    data-theme="light"
-                                    data-action="contact"
-                                    data-size="normal"
-                                    data-cdata="contact-form"
-                                ></div>
+                                {/* IMPORTANTE: 
+                                    1. El div ref={containerRef} es donde Cloudflare montará el widget.
+                                    2. El input hidden lleva el token al servidor.
+                                */}
+                                <div class="min-h-[65px]">
+                                    <div ref={containerRef}></div>
+                                </div>
+                                <input type="hidden" name="cf-turnstile-response" value={turnstileToken.value} />
 
                                 <Button
                                     type="submit"
                                     size="lg"
-                                    disabled={action.isRunning}
+                                    // Deshabilitamos si está cargando O si no tenemos token de Turnstile aún
+                                    disabled={action.isRunning || !turnstileToken.value}
                                     class="w-full border-0 bg-gradient-to-r from-[--primary] to-[#006080] text-white font-bold tracking-wide uppercase py-4 rounded-xl transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
                                     {action.isRunning ? 'Enviando...' : buttonLabel}
@@ -166,26 +157,13 @@ export const Contact = component$<ContactProps>(({
                             </Form>
                         )}
 
-                        {/* Quick Contact Info */}
                         <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <a
-                                href={`mailto:${contactEmail}`}
-                                class="flex items-center text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors gap-3 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
-                            >
-                                <div class="p-2 bg-primary/10 rounded-full text-primary">
-                                    <LuMail class="w-5 h-5" />
-                                </div>
+                            <a href={`mailto:${contactEmail}`} class="flex items-center text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors gap-3 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                                <div class="p-2 bg-primary/10 rounded-full text-primary"><LuMail class="w-5 h-5" /></div>
                                 <span class="truncate font-medium">{contactEmail}</span>
                             </a>
-                            <a
-                                href="https://ENLACESALUD.com.ar"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="flex items-center text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors gap-3 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
-                            >
-                                <div class="p-2 bg-primary/10 rounded-full text-primary">
-                                    <LuGlobe class="w-5 h-5" />
-                                </div>
+                            <a href="https://ENLACESALUD.com.ar" target="_blank" rel="noopener noreferrer" class="flex items-center text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors gap-3 p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                                <div class="p-2 bg-primary/10 rounded-full text-primary"><LuGlobe class="w-5 h-5" /></div>
                                 <span class="font-medium">ENLACESALUD.com.ar</span>
                             </a>
                         </div>

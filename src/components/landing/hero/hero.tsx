@@ -42,20 +42,20 @@ export const Hero = component$<HeroProps>(({ data }) => {
     const imageUrl = data.image.url;
 
     return (
-        <section id="inicio" class="relative pt-16 pb-20 md:pt-28 lg:pt-32 lg:pb-32 overflow-hidden bg-slate-50 dark:bg-slate-950">
+        <section id="inicio" class="relative pt-12 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24 overflow-hidden bg-slate-50 dark:bg-slate-950">
             <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/40 via-transparent to-transparent dark:from-primary/20"></div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12 items-center">
                     <div class="max-w-3xl mx-auto lg:mx-0 flex flex-col items-center lg:items-start text-center lg:text-left mb-12 lg:mb-0">
                         <Reveal>
-                            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-8 mt-8 lg:mt-0">
+                            <h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 mt-6 lg:mt-0">
                                 {renderHeading(data.heading)}
                             </h1>
                         </Reveal>
 
                         <Reveal delay={200}>
-                            <p class="text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
+                            <p class="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto">
                                 {data.subheading}
                             </p>
                         </Reveal>
@@ -70,7 +70,7 @@ export const Hero = component$<HeroProps>(({ data }) => {
                                 <Button
                                     look="primary"
                                     size="lg"
-                                    class="flex items-center gap-3 cursor-pointer border-0 bg-gradient-to-r from-[--primary] to-[#006080] text-white shadow-lg shadow-primary/40 hover:shadow-primary/60 hover:to-[#005070] hover:-translate-y-1 transition-all duration-300 font-bold tracking-wide uppercase"
+                                    class="flex items-center gap-3 cursor-pointer border-0 bg-gradient-to-r from-[--primary] to-[#006080] text-white shadow-lg shadow-primary/40 hover:shadow-primary/60 hover:to-[#005070] hover:-translate-y-1 transition-all duration-300 font-bold tracking-wide uppercase w-auto px-6 sm:px-8"
                                 >
                                     <span>{data.link.label}</span>
                                     <LuCalendarDays class="w-5 h-5 stroke-white" />
@@ -81,7 +81,7 @@ export const Hero = component$<HeroProps>(({ data }) => {
                     </div>
                     <div class="relative w-full">
                         <Reveal direction="right" delay={600}>
-                            <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-800 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                            <div class="relative rounded-3xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
                                 <StoryblokImage
                                     src={imageUrl}
                                     alt={data.image.alternativeText || 'Hero Image'}

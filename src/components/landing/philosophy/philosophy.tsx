@@ -69,7 +69,7 @@ export const Philosophy = component$<PhilosophyProps>(({ data }) => {
     };
 
     return (
-        <section class="py-20 bg-slate-50 dark:bg-slate-950">
+        <section class="py-12 md:py-16 lg:py-20 bg-slate-50 dark:bg-slate-950">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">

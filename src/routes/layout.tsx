@@ -1,14 +1,16 @@
 import { component$, Slot } from '@builder.io/qwik';
-import { routeLoader$, globalAction$, zod$, z } from '@builder.io/qwik-city';
+import { routeLoader$, routeAction$, zod$, z } from '@builder.io/qwik-city';
 import { Navbar, type SocialNetwork } from '~/components/landing/navbar/navbar';
 import { Footer } from '~/components/landing/footer/footer';
 import { WhatsAppButton } from '~/components/ui/whatsapp-button';
 import { ScrollToTop } from '~/components/ui/scroll-to-top';
 import { storyblokApi } from '~/routes/plugin@storyblok';
 
-export const useSendContactEmail = globalAction$(async (datos, { env, fail }) => {
-    // 1. Validar Token de Turnstile
+export const useSendContactEmail = routeAction$(async (datos, { env, fail, request }) => {
+    // 1. Obtener el token de Turnstile
+    // Nota: Al usar render explícito, nos aseguramos que el campo se llame 'cf-turnstile-response'
     const token = (datos as any)['cf-turnstile-response'];
+
     if (!token) {
         return fail(400, { message: 'Por favor, completa la verificación de seguridad.' });
     }
@@ -19,15 +21,17 @@ export const useSendContactEmail = globalAction$(async (datos, { env, fail }) =>
         return fail(500, { message: 'Error de configuración del servidor' });
     }
 
+    // 2. Validar con Cloudflare usando FormData (¡CRÍTICO PARA QUE FUNCIONE!)
+    const formData = new FormData();
+    formData.append('secret', secretKey);
+    formData.append('response', token);
+    // Opcional: Pasar la IP del cliente para mayor seguridad
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('cf-connecting-ip');
+    if (ip) formData.append('remoteip', ip);
+
     const verifyResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            secret: secretKey,
-            response: token,
-        }),
+        body: formData, // <--- Aquí estaba el problema, usamos FormData en lugar de JSON
     });
 
     const verifyResult = await verifyResponse.json();
@@ -36,14 +40,14 @@ export const useSendContactEmail = globalAction$(async (datos, { env, fail }) =>
         return fail(400, { message: 'Verificación de seguridad fallida. Intenta nuevamente.' });
     }
 
-    // 2. Verificamos que la API Key de Resend exista
+    // 3. Verificamos API Key de Resend
     const apiKey = env.get('RESEND_API_KEY');
     if (!apiKey) {
         console.error('Falta la API Key de Resend en .env.local');
         return fail(500, { message: 'Error de configuración del servidor' });
     }
 
-    // 2. Enviamos el email usando fetch nativo (Edge compatible)
+    // 4. Enviar email con Resend
     try {
         const response = await fetch('https://api.resend.com/emails', {
             method: 'POST',
@@ -52,22 +56,18 @@ export const useSendContactEmail = globalAction$(async (datos, { env, fail }) =>
                 'Authorization': `Bearer ${apiKey}`,
             },
             body: JSON.stringify({
-                // IMPORTANTE: En modo prueba, SOLO puedes usar 'onboarding@resend.dev'
-                from: 'onboarding@resend.dev',
-
-                // IMPORTANTE: En modo prueba, SOLO puedes enviar emails a TU PROPIO correo (con el que te registraste)
+                from: 'onboarding@resend.dev', // Recuerda cambiar esto en producción si tienes dominio verificado en Resend
                 to: 'comercial@enlacesalud.com.ar',
-
                 subject: `Nuevo contacto de: ${datos.nombre}`,
                 html: `
-            <h1>Nuevo mensaje desde Cleverisma</h1>
-            <p><strong>Nombre:</strong> ${datos.nombre}</p>
-            <p><strong>Email del cliente:</strong> ${datos.email}</p>
-            <p><strong>Mensaje:</strong></p>
-            <blockquote style="background: #f9f9f9; padding: 10px; border-left: 5px solid #ccc;">
-            ${datos.mensaje}
-            </blockquote>
-        `,
+                    <h1>Nuevo mensaje desde Cleverisma</h1>
+                    <p><strong>Nombre:</strong> ${datos.nombre}</p>
+                    <p><strong>Email del cliente:</strong> ${datos.email}</p>
+                    <p><strong>Mensaje:</strong></p>
+                    <blockquote style="background: #f9f9f9; padding: 10px; border-left: 5px solid #ccc;">
+                    ${datos.mensaje}
+                    </blockquote>
+                `,
             }),
         });
 
@@ -87,14 +87,13 @@ export const useSendContactEmail = globalAction$(async (datos, { env, fail }) =>
     nombre: z.string().min(2, 'Tu nombre es muy corto'),
     email: z.string().email('Ingresa un email válido'),
     mensaje: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres'),
+    // Validamos que el token venga en el request, aunque sea string vacío
+    'cf-turnstile-response': z.string().optional()
 }));
 
 export const useGlobalConfig = routeLoader$(async () => {
     try {
-        if (!storyblokApi) {
-            console.error('Storyblok API is not initialized');
-            return null;
-        }
+        if (!storyblokApi) return null;
         const version = process.env.PUBLIC_STORYBLOK_VERSION === 'published' ? 'published' : 'draft';
         const { data } = await storyblokApi.get('cdn/stories/config', {
             version: version as 'published' | 'draft',
@@ -108,18 +107,15 @@ export const useGlobalConfig = routeLoader$(async () => {
 });
 
 interface LayoutProps {
-    blok?: any; // Datos provenientes de Storyblok
+    blok?: any;
 }
 
 export default component$<LayoutProps>(() => {
     const globalConfig = useGlobalConfig();
     const config = globalConfig.value;
-    const primaryColor = config?.primary_color?.color || '#0ea5e9'; // Fallback to sky-500
+    const primaryColor = config?.primary_color?.color || '#0ea5e9';
 
-    // Raw social networks from Storyblok for Footer (which will handle the raw shape)
     const rawSocialNetworks = config?.social_networks || [];
-    // Mapped social networks for Navbar (which expects the old SocialNetwork interface)
-    // We try to extract a usable URL and icon name
     const socialNetworksNavbar: SocialNetwork[] = rawSocialNetworks.map((sn: any) => {
         let url = "";
         if (typeof sn.url === 'string') {
@@ -127,10 +123,9 @@ export default component$<LayoutProps>(() => {
         } else if (sn.url && typeof sn.url === 'object') {
             url = sn.url.url || "";
         }
-
         return {
             id: sn._uid,
-            platform: sn.platform || "default", // Use icon name as platform/label
+            platform: sn.platform || "default",
             url: url,
             iconName: sn.icon_name || "default",
         };

@@ -64,7 +64,7 @@ Entendemos la salud como un ecosistema complejo que requiere precisión y eficie
     };
 
     return (
-        <section id="nosotros" class="py-20 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+        <section id="nosotros" class="py-12 md:py-16 lg:py-20 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
                     <div class="text-center lg:text-left">
