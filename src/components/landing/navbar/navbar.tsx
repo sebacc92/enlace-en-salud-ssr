@@ -58,7 +58,7 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
     return (
         <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 dark:bg-slate-950/90 dark:border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-16">
+                <div class="flex justify-between items-center h-16 md:h-auto md:py-2">
                     {/* Logo */}
                     <div class="flex-shrink-0 flex items-center">
                         <Link
@@ -91,7 +91,7 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
                                 <Link
                                     key={item._uid}
                                     href={getLinkUrl(item)}
-                                    class="text-muted-foreground hover:text-primary transition-colors text-md font-medium"
+                                    class="text-muted-foreground hover:text-primary transition-colors text-lg font-medium"
                                 >
                                     {item.label}
                                 </Link>
@@ -102,7 +102,7 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
                                 <Link
                                     key={item}
                                     href={`#${item.toLowerCase()}`}
-                                    class="text-muted-foreground hover:text-primary transition-colors text-md font-medium"
+                                    class="text-muted-foreground hover:text-primary transition-colors text-lg font-medium"
                                 >
                                     {item}
                                 </Link>
@@ -122,7 +122,7 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
                                         class="text-muted-foreground hover:text-primary transition-colors"
                                         aria-label={social.platform}
                                     >
-                                        <IconComponent class="w-5 h-5" />
+                                        <IconComponent class="w-6 h-6" />
                                     </a>
                                 );
                             })}

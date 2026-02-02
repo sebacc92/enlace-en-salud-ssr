@@ -38,14 +38,14 @@ export const Footer = component$<FooterProps>(({ socialNetworks = [], logo, foot
                             <img
                                 src={logo.filename}
                                 alt={logo.alt || "Logo Enlace en Salud"}
-                                class="h-10 w-auto object-contain brightness-0 invert"
-                                width={150}
-                                height={50}
+                                class="h-20 w-auto object-contain brightness-0 invert"
+                                width={300}
+                                height={100}
                             />
                         ) : (
                             <LogoFooter alt="Logo Enlace en Salud" />
                         )}
-                        <p class="text-slate-400 text-sm leading-relaxed max-w-sm mt-6">
+                        <p class="text-slate-400 text-md lg:text-lg leading-relaxed max-w-sm mt-6">
                             {footerContent || "Soluciones integrales y gestión sanitaria de excelencia."}
                         </p>
                     </div>

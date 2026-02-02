@@ -2,6 +2,7 @@ import { component$, useSignal, useVisibleTask$, $ } from "@builder.io/qwik";
 import { Form } from "@builder.io/qwik-city";
 import { LuMail, LuGlobe } from "@qwikest/icons/lucide";
 import { useSendContactEmail } from "~/routes/layout";
+import { Button } from "~/components/ui/button/button";
 
 export interface ContactProps {
     title?: string;
@@ -154,13 +155,14 @@ export const Contact = component$<ContactProps>(({
                                     data-cdata="contact-form"
                                 ></div>
 
-                                <button
+                                <Button
                                     type="submit"
+                                    size="lg"
                                     disabled={action.isRunning}
-                                    class="w-full bg-gradient-to-r from-[#007EA7] to-[#006080] hover:to-[#005070] text-white font-bold tracking-wide uppercase py-4 rounded-xl transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
+                                    class="w-full border-0 bg-gradient-to-r from-[--primary] to-[#006080] text-white font-bold tracking-wide uppercase py-4 rounded-xl transition-all shadow-lg shadow-primary/30 hover:shadow-primary/50 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
                                     {action.isRunning ? 'Enviando...' : buttonLabel}
-                                </button>
+                                </Button>
                             </Form>
                         )}
 

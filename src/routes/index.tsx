@@ -28,11 +28,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-    title: "Welcome to Qwik with Storyblok",
+    title: "Enlace en Salud | Soluciones Integrales y Gestión Sanitaria",
     meta: [
         {
             name: "description",
-            content: "Qwik & Storyblok site description",
+            content: "Enlace en Salud ofrece soluciones integrales y gestión sanitaria para empresas y organizaciones. Expertos en salud ocupacional y bienestar laboral.",
         },
     ],
 };

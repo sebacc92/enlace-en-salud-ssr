@@ -56,7 +56,7 @@ export const useSendContactEmail = globalAction$(async (datos, { env, fail }) =>
                 from: 'onboarding@resend.dev',
 
                 // IMPORTANTE: En modo prueba, SOLO puedes enviar emails a TU PROPIO correo (con el que te registraste)
-                to: 'sebastiancardoso92@gmail.com',
+                to: 'comercial@enlacesalud.com.ar',
 
                 subject: `Nuevo contacto de: ${datos.nombre}`,
                 html: `
