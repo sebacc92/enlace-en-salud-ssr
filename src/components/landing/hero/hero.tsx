@@ -42,7 +42,7 @@ export const Hero = component$<HeroProps>(({ data }) => {
     const imageUrl = data.image.url;
 
     return (
-        <section id="inicio" class="relative pt-12 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24 overflow-hidden bg-slate-50 dark:bg-slate-950">
+        <section id="inicio" class="relative pt-20 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24 overflow-hidden bg-slate-50 dark:bg-slate-950">
             <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/40 via-transparent to-transparent dark:from-primary/20"></div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
