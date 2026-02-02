@@ -85,8 +85,6 @@ export const Hero = component$<HeroProps>(({ data }) => {
                                 <StoryblokImage
                                     src={imageUrl}
                                     alt={data.image.alternativeText || 'Hero Image'}
-                                    width={data.image.width}
-                                    height={data.image.height}
                                     class="w-full h-auto object-cover aspect-[3/4]"
                                     priority={true}
                                 />
