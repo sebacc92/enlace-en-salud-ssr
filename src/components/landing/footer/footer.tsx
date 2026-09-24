@@ -2,7 +2,6 @@ import { component$ } from "@builder.io/qwik";
 import LogoFooter from "~/media/img/logo-footer.webp?jsx";
 import { ICON_REGISTRY } from "~/components/icons/registry";
 
-// New interface matching Storyblok dynamic structure
 export interface SocialNetworkItem {
     _uid?: string;
     icon_name: string;

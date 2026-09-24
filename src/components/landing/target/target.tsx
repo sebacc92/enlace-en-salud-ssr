@@ -36,7 +36,6 @@ export const Target = component$<TargetProps>(({ data }) => {
                 <div class="grid grid-cols-2 lg:grid-cols-5 gap-8">
                     {targets.map((item, index) => {
                         const IconComponent = getIcon(item.iconName);
-                        // Storyblok sends 'label' or 'name'. Using label as primary.
                         return (
                             <div
                                 key={index}

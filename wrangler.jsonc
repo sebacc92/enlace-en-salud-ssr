@@ -1,0 +1,46 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "enlace-en-salud",
+  "main": "./dist/_worker.js",
+  "account_id": "bcbac71e966ee9b5a273922d06ac70f5",
+  "compatibility_date": "2026-09-13",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": false
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "enlace-en-salud-db",
+      "database_id": "7f7d3fe7-5095-475b-9f0d-3d98c0b1db5b"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA_BUCKET",
+      "bucket_name": "enlace-en-salud-media"
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.01
+    }
+  },
+  "secrets": {
+    "required": [
+      "RESEND_API_KEY",
+      "TURNSTILE_SECRET_KEY",
+      "ADMIN_USERNAME",
+      "ADMIN_PASSWORD",
+      "ADMIN_SESSION_SECRET"
+    ]
+  }
+}

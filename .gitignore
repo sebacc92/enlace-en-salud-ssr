@@ -15,6 +15,11 @@ node_modules
 .rollup.cache
 tsconfig.tsbuildinfo
 
+# Cloudflare
+.wrangler
+.dev.vars
+.dev.vars.*
+
 # Logs
 logs
 *.log

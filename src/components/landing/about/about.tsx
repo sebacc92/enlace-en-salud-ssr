@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import DoctorArmsImg from "~/media/img/doctor-arms.jpg?jsx";
-import { StoryblokImage } from "~/components/ui/storyblok-image";
+import { SiteImage } from "~/components/ui/site-image";
 import { Reveal } from "~/components/ui/reveal";
 
 export interface ImageFormat {
@@ -82,7 +82,7 @@ Entendemos la salud como un ecosistema complejo que requiere precisión y eficie
                         <Reveal direction="right" delay={300}>
                             <div class="rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 shadow-xl relative group">
                                 {imageUrl ? (
-                                    <StoryblokImage
+                                    <SiteImage
                                         src={imageUrl}
                                         alt={data?.image?.alternativeText || "Equipo médico profesional"}
                                         width={data?.image?.width || 800}

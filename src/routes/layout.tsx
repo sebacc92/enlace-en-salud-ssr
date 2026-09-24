@@ -4,7 +4,10 @@ import { Navbar, type SocialNetwork } from '~/components/landing/navbar/navbar';
 import { Footer } from '~/components/landing/footer/footer';
 import { WhatsAppButton } from '~/components/ui/whatsapp-button';
 import { ScrollToTop } from '~/components/ui/scroll-to-top';
-import { storyblokApi } from '~/routes/plugin@storyblok';
+import { getSiteConfig } from '~/lib/content';
+import { getOptionalEnv } from '~/lib/platform';
+
+const WHATSAPP_PHONE = '+54 9 11 5053-2300';
 
 export const useSendContactEmail = routeAction$(async (datos, { env, fail, request }) => {
     // 1. Obtener el token de Turnstile
@@ -34,7 +37,7 @@ export const useSendContactEmail = routeAction$(async (datos, { env, fail, reque
         body: formData, // <--- Aquí estaba el problema, usamos FormData en lugar de JSON
     });
 
-    const verifyResult = await verifyResponse.json();
+    const verifyResult = await verifyResponse.json<{ success: boolean }>();
     if (!verifyResult.success) {
         console.error('Turnstile verification failed:', verifyResult);
         return fail(400, { message: 'Verificación de seguridad fallida. Intenta nuevamente.' });
@@ -91,15 +94,11 @@ export const useSendContactEmail = routeAction$(async (datos, { env, fail, reque
     'cf-turnstile-response': z.string().optional()
 }));
 
-export const useGlobalConfig = routeLoader$(async () => {
+export const useGlobalConfig = routeLoader$(async (requestEvent) => {
     try {
-        if (!storyblokApi) return null;
-        const version = process.env.PUBLIC_STORYBLOK_VERSION === 'published' ? 'published' : 'draft';
-        const { data } = await storyblokApi.get('cdn/stories/config', {
-            version: version as 'published' | 'draft',
-            resolve_links: 'url',
-        });
-        return data.story.content;
+        const env = getOptionalEnv(requestEvent);
+        if (!env?.DB) return null;
+        return await getSiteConfig(env.DB);
     } catch (error) {
         console.error('Error fetching global config:', error);
         return null;
@@ -113,7 +112,7 @@ interface LayoutProps {
 export default component$<LayoutProps>(() => {
     const globalConfig = useGlobalConfig();
     const config = globalConfig.value;
-    const primaryColor = config?.primary_color?.color || '#0ea5e9';
+    const primaryColor = config?.primary_color || '#0ea5e9';
 
     const rawSocialNetworks = config?.social_networks || [];
     const socialNetworksNavbar: SocialNetwork[] = rawSocialNetworks.map((sn: any) => {
@@ -149,7 +148,7 @@ export default component$<LayoutProps>(() => {
                 socialNetworks={rawSocialNetworks}
             />
             <WhatsAppButton
-                phone={config?.whatsapp_number}
+                phone={WHATSAPP_PHONE}
                 message={config?.whatsapp_message}
             />
             <ScrollToTop />

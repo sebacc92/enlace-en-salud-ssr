@@ -72,7 +72,7 @@ export const Contact = component$<ContactProps>(({
     });
 
     return (
-        <section id="contacto" class="py-16 md:py-24 bg-white dark:bg-slate-950 relative overflow-hidden">
+        <section id="contacto" class="py-16 md:py-16 bg-white dark:bg-slate-950 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">

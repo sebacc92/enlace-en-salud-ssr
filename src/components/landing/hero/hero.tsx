@@ -1,7 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { LuCalendarDays } from "@qwikest/icons/lucide";
 import { Button } from "~/components/ui/button/button";
-import { StoryblokImage } from "~/components/ui/storyblok-image";
+import { SiteImage } from "~/components/ui/site-image";
 import { Reveal } from "~/components/ui/reveal";
 
 interface HeroProps {
@@ -80,7 +80,7 @@ export const Hero = component$<HeroProps>(({ data }) => {
 
             {/* Right Column: Image */}
             <div class="w-full lg:w-1/2 h-[50vh] min-h-[400px] lg:h-auto relative order-1 lg:order-2">
-                <StoryblokImage
+                <SiteImage
                     src={imageUrl}
                     alt={data.image.alternativeText || 'Hero Image'}
                     class="absolute inset-0 w-full h-full object-cover object-[center_20%] lg:object-center"

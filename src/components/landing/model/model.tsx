@@ -2,7 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import { LuCheckCircle2 } from "@qwikest/icons/lucide";
 import { Card } from "~/components/ui/card/card";
 import LaptopImg from "~/media/img/laptop-typing.jpg?jsx";
-import { StoryblokImage } from "~/components/ui/storyblok-image";
+import { SiteImage } from "~/components/ui/site-image";
 
 export interface ImageFormat {
     url: string;
@@ -111,7 +111,7 @@ export const Model = component$<ModelProps>(({ data }) => {
                     <div class="relative rounded-3xl overflow-hidden min-h-[300px] bg-primary flex items-center justify-center p-8 text-center text-primary-foreground group">
                         {/* Background Image */}
                         {imageUrl ? (
-                            <StoryblokImage
+                            <SiteImage
                                 src={imageUrl}
                                 alt={data?.image?.alternativeText || "Gestión digital"}
                                 width={data?.image?.width}

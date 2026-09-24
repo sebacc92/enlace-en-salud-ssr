@@ -8,12 +8,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "qwik build",
+    "build": "pnpm build:cloudflare",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
     "build.server": "qwik check-client src dist && vite build -c adapters/vercel-edge/vite.config.ts",
+    "build.server:cloudflare": "qwik check-client src dist && vite build -c adapters/cloudflare-workers/vite.config.ts",
+    "build:cloudflare": "pnpm build.client && pnpm build.server:cloudflare",
     "build.types": "tsc --incremental --noEmit",
-    "deploy": "vercel deploy",
+    "deploy": "pnpm deploy:cloudflare",
+    "deploy:cloudflare": "pnpm build:cloudflare && wrangler deploy",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
@@ -26,12 +29,12 @@
   "devDependencies": {
     "@builder.io/qwik": "^1.18.0",
     "@builder.io/qwik-city": "^1.18.0",
-    "@eslint/js": "latest",
+    "@cloudflare/workers-types": "5.20260911.1",
+    "@eslint/js": "9.39.2",
     "@qwik-ui/headless": "^0.7.4",
     "@qwik-ui/styled": "^0.4.1",
     "@qwik-ui/utils": "^0.3.3",
     "@qwikest/icons": "^0.0.13",
-    "@storyblok/js": "^4.4.4",
     "@tailwindcss/vite": "^4.1.4",
     "@types/node": "20.19.0",
     "@types/qs": "^6.14.0",
@@ -58,9 +61,10 @@
     "typescript-eslint": "8.38.0",
     "typescript-plugin-css-modules": "latest",
     "undici": "*",
-    "vercel": "^29.1.1",
+    "vercel": "^50.32.5",
     "vite": "7.2.6",
     "vite-plugin-mkcert": "^1.17.9",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite-tsconfig-paths": "^4.2.1",
+    "wrangler": "4.131.1"
   }
 }

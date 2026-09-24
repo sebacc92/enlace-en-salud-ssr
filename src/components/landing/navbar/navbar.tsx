@@ -51,14 +51,18 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
             }
             return url;
         } else {
-            return item.link.url;
+            const url = item.link.url;
+            if (url && url.startsWith('#')) {
+                return '/' + url;
+            }
+            return url || '';
         }
     };
 
     return (
         <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 dark:bg-slate-950/90 dark:border-slate-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-14 md:h-auto md:py-2">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-14 md:h-auto md:py-2 gap-4 lg:gap-8">
                     {/* Logo */}
                     <div class="flex-shrink-0 flex items-center">
                         <Link
@@ -85,24 +89,37 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
                     </div>
 
                     {/* Desktop Menu */}
-                    <div class="hidden md:flex items-center space-x-8">
-                        {menuItems.length > 0 ? (
-                            menuItems.map((item) => (
-                                <Link
-                                    key={item._uid}
-                                    href={getLinkUrl(item)}
-                                    class="text-muted-foreground hover:text-primary transition-colors text-lg font-medium"
-                                >
-                                    {item.label}
-                                </Link>
-                            ))
-                        ) : (
+                    <div class="hidden md:flex items-center space-x-4 lg:space-x-8">
+                        {(() => {
+                            const augmentedMenu = [...menuItems];
+                            if (!augmentedMenu.some(item => item.label.includes("Cardio"))) {
+                                augmentedMenu.push({
+                                    _uid: "hardcoded-cardio-desktop",
+                                    label: "Área Cardioasistida",
+                                    link: { linktype: "url", url: "/area-cardioasistida" } as any
+                                });
+                            }
+
+                            if (augmentedMenu.length > 0) {
+                                return augmentedMenu.map((item) => (
+                                    <Link
+                                        key={item._uid}
+                                        href={getLinkUrl(item)}
+                                        class="text-muted-foreground hover:text-primary transition-colors text-lg font-medium whitespace-nowrap"
+                                    >
+                                        {item.label}
+                                    </Link>
+                                ));
+                            }
+                            return null;
+                        })()}
+                        {menuItems.length === 0 && (
                             // Fallback static menu if no dynamic items
                             ["Inicio", "Nosotros", "Servicios", "Modelo", "Contacto"].map((item) => (
                                 <Link
                                     key={item}
-                                    href={`#${item.toLowerCase()}`}
-                                    class="text-muted-foreground hover:text-primary transition-colors text-lg font-medium"
+                                    href={item === "Inicio" ? "/" : `/#${item.toLowerCase()}`}
+                                    class="text-muted-foreground hover:text-primary transition-colors text-lg font-medium whitespace-nowrap"
                                 >
                                     {item}
                                 </Link>
@@ -146,23 +163,35 @@ export const Navbar = component$<NavbarProps>(({ socialNetworks = [], logo, menu
             {isOpen.value && (
                 <div class="md:hidden bg-white border-b border-slate-100 dark:bg-slate-950 dark:border-slate-800 animate-accordion-down overflow-hidden">
                     <div class="px-4 pt-2 pb-6 space-y-2">
-                        {menuItems.length > 0 ? (
-                            menuItems.map((item) => (
-                                <Link
-                                    key={item._uid}
-                                    href={getLinkUrl(item)}
-                                    class="block px-3 py-3 rounded-lg text-base font-medium text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
-                                    onClick$={() => (isOpen.value = false)}
-                                >
-                                    {item.label}
-                                </Link>
-                            ))
-                        ) : (
-                            // Fallback static menu
+                        {(() => {
+                            const augmentedMenu = [...menuItems];
+                            if (!augmentedMenu.some(item => item.label.includes("Cardio"))) {
+                                augmentedMenu.push({
+                                    _uid: "hardcoded-cardio-mobile",
+                                    label: "Área Cardioasistida",
+                                    link: { linktype: "url", url: "/area-cardioasistida" } as any
+                                });
+                            }
+
+                            if (augmentedMenu.length > 0) {
+                                return augmentedMenu.map((item) => (
+                                    <Link
+                                        key={item._uid}
+                                        href={getLinkUrl(item)}
+                                        class="block px-3 py-3 rounded-lg text-base font-medium text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                                        onClick$={() => (isOpen.value = false)}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                ));
+                            }
+                            return null;
+                        })()}
+                        {menuItems.length === 0 && (
                             ["Inicio", "Servicios", "Modelo", "Nosotros", "Contacto"].map((item) => (
                                 <Link
                                     key={item}
-                                    href={`#${item.toLowerCase()}`}
+                                    href={item === "Inicio" ? "/" : `/#${item.toLowerCase()}`}
                                     class="block px-3 py-3 rounded-lg text-base font-medium text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
                                     onClick$={() => (isOpen.value = false)}
                                 >
