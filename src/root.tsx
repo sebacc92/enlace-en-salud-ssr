@@ -1,5 +1,6 @@
 import { component$, isDev, useStyles$ } from "@builder.io/qwik";
 import { QwikCityProvider, RouterOutlet } from "@builder.io/qwik-city";
+import { GoogleAnalytics } from "./components/partytown/google-analytics";
 import { RouterHead } from "./components/router-head/router-head";
 
 import globalCss from "./global.css?inline";
@@ -24,6 +25,7 @@ export default component$(() => {
           />
         )}
         <RouterHead />
+        <GoogleAnalytics />
       </head>
       <body lang="en">
         <RouterOutlet />

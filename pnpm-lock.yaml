@@ -10,10 +10,10 @@ importers:
     devDependencies:
       '@builder.io/qwik':
         specifier: ^1.18.0
-        version: 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
+        version: 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
       '@builder.io/qwik-city':
         specifier: ^1.18.0
-        version: 1.19.0(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(rollup@4.57.1)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(supports-color@10.2.2)(tsx@4.21.0)(typescript@5.4.5)(yaml@2.8.2)
+        version: 1.19.0(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(rollup@4.57.1)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(supports-color@10.2.2)(tsx@4.21.0)(typescript@5.4.5)(yaml@2.8.2)
       '@cloudflare/workers-types':
         specifier: 5.20260911.1
         version: 5.20260911.1
@@ -22,19 +22,22 @@ importers:
         version: 9.39.2
       '@qwik-ui/headless':
         specifier: ^0.7.4
-        version: 0.7.4(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))
+        version: 0.7.4(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))
       '@qwik-ui/styled':
         specifier: ^0.4.1
-        version: 0.4.1(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))
+        version: 0.4.1(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))
       '@qwik-ui/utils':
         specifier: ^0.3.3
         version: 0.3.3
+      '@qwik.dev/partytown':
+        specifier: ^0.11.1
+        version: 0.11.2
       '@qwikest/icons':
         specifier: ^0.0.13
-        version: 0.0.13(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))
+        version: 0.0.13(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))
       '@tailwindcss/vite':
         specifier: ^4.1.4
-        version: 4.1.18(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
+        version: 4.1.18(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
       '@types/node':
         specifier: 20.19.0
         version: 20.19.0
@@ -43,10 +46,10 @@ importers:
         version: 6.14.0
       '@unpic/qwik':
         specifier: ^1.0.0
-        version: 1.0.0(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))
+        version: 1.0.0(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))
       '@vitejs/plugin-basic-ssl':
         specifier: ^2.1.4
-        version: 2.1.4(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
+        version: 2.1.4(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
       autoprefixer:
         specifier: ^10.4.14
         version: 10.4.24(postcss@8.5.6)
@@ -85,7 +88,7 @@ importers:
         version: 6.14.1
       qwik-turnstile:
         specifier: ^0.0.3
-        version: 0.0.3(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))
+        version: 0.0.3(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))
       qwik-ui:
         specifier: ^0.4.3
         version: 0.4.3(nx@22.4.4(debug@4.4.3(supports-color@10.2.2)))
@@ -106,7 +109,7 @@ importers:
         version: 8.38.0(eslint@9.32.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@5.4.5)
       typescript-plugin-css-modules:
         specifier: latest
-        version: 5.2.0(supports-color@10.2.2)(ts-node@10.9.1(@types/node@20.19.0)(typescript@5.4.5))(typescript@5.4.5)
+        version: 5.3.0(supports-color@10.2.2)(ts-node@10.9.1(@types/node@20.19.0)(typescript@5.4.5))(typescript@5.4.5)
       undici:
         specifier: '*'
         version: 7.19.2
@@ -115,13 +118,13 @@ importers:
         version: 50.32.5(rollup@4.57.1)(supports-color@10.2.2)(typescript@5.4.5)
       vite:
         specifier: 7.2.6
-        version: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
+        version: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
       vite-plugin-mkcert:
         specifier: ^1.17.9
-        version: 1.17.9(supports-color@10.2.2)(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
+        version: 1.17.9(supports-color@10.2.2)(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
       vite-tsconfig-paths:
         specifier: ^4.2.1
-        version: 4.3.2(supports-color@10.2.2)(typescript@5.4.5)(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
+        version: 4.3.2(supports-color@10.2.2)(typescript@5.4.5)(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
       wrangler:
         specifier: 4.131.1
         version: 4.131.1(@cloudflare/workers-types@5.20260911.1)(@types/node@20.19.0)
@@ -1705,6 +1708,11 @@ packages:
   '@qwik-ui/utils@0.3.3':
     resolution: {integrity: sha512-oSZiLoZSIQeFzQXtylPL6W0wgXdFAywG5gvzLCMbaSQ3rARfcmVTYnuwJ2POEbBbQ0GZuHivpwA6IyKQSbwggw==}
 
+  '@qwik.dev/partytown@0.11.2':
+    resolution: {integrity: sha512-795y49CqBiKiwKAD+QBZlzlqEK275hVcazZ7wBPSfgC23L+vWuA7PJmMpgxojOucZHzYi5rAAQ+IP1I3BKVZxw==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+
   '@qwikest/icons@0.0.13':
     resolution: {integrity: sha512-e0wY8vmx0nDSUiuCATlk+ojTvdBV4txIGHHWjZW5SRkv4XB8H9+3WSDcLPz0ItUdRyzcrohE9k2jtQI/98aRPA==}
     engines: {node: '>=15.0.0'}
@@ -2234,6 +2242,7 @@ packages:
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
 
   '@unpic/qwik@1.0.0':
     resolution: {integrity: sha512-ESPOWYuYYTCT/d1AvEqxx6XFEE7dEdwsbtHCImiZxqRNtQf4I3q6GpOX5e7VSduCLpoGvjj3ZdZzYG/Ypa6drQ==}
@@ -2516,6 +2525,7 @@ packages:
   basic-ftp@5.2.0:
     resolution: {integrity: sha512-VoMINM2rqJwJgfdHq6RiUudKt2BV+FY5ZFezP/ypmwayk68+NzzAQy4XXLlqsGD4MCzq3DrmNFD/uUmBJuGoXw==}
     engines: {node: '>=10.0.0'}
+    deprecated: Security vulnerability fixed in 5.2.1, please upgrade
 
   bindings@1.5.0:
     resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
@@ -2606,9 +2616,9 @@ packages:
     resolution: {integrity: sha512-mxIojEAQcuEvT/lyXq+jf/3cO/KoA6z4CeNDGGevTybECPOMFCnQy3OPahluUkbqgPNGw5Bi78UC7Po6Lhy+NA==}
     engines: {node: '>= 14.16.0'}
 
-  chokidar@4.0.3:
-    resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
-    engines: {node: '>= 14.16.0'}
+  chokidar@5.0.0:
+    resolution: {integrity: sha512-TQMmc3w+5AxjpL8iIiwebF73dRDF4fBIieAqGn9RGCWaEVwQ6Fb2cGe31Yns0RRIzii5goJ1Y7xbMwo1TxMplw==}
+    engines: {node: '>= 20.19.0'}
 
   chownr@3.0.0:
     resolution: {integrity: sha512-+IxzY9BZOQd/XuYPRmrvEVjF/nqj5kgT4kEq7VofrDoM1MxoRjEWkrCC3EtLi59TVawxTAn+orJwFQcrqEN1+g==}
@@ -2693,8 +2703,9 @@ packages:
     resolution: {integrity: sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ==}
     engines: {node: '>=18'}
 
-  copy-anything@2.0.6:
-    resolution: {integrity: sha512-1j20GZTsvKNkc4BY3NpMOM8tt///wY3FpIzozTOFO2ffuZcV61nojHXVKIy3WM+7ADCy5FVhdZYHYDdgTU0yJw==}
+  copy-anything@3.0.5:
+    resolution: {integrity: sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w==}
+    engines: {node: '>=12.13'}
 
   create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
@@ -2794,6 +2805,14 @@ packages:
   data-view-byte-offset@1.0.1:
     resolution: {integrity: sha512-BS8PfmtDGnrgYdOonGZQdLZslWIeCGFP9tpan0hi1Co2Zr2NKADsvGYA8XxuG/4UWgJ6Cjtv+YJnB6MM69QGlQ==}
     engines: {node: '>= 0.4'}
+
+  debug@3.2.7:
+    resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
 
   debug@4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
@@ -3399,17 +3418,12 @@ packages:
     resolution: {integrity: sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==}
     engines: {node: '>= 4'}
 
-  image-size@0.5.5:
-    resolution: {integrity: sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==}
-    engines: {node: '>=0.10.0'}
-    hasBin: true
-
   imagetools-core@9.1.0:
     resolution: {integrity: sha512-xQjs+2vrxLnAjCq+omuNkd5UQTld9/bP8+YT0LyYTlKfuSQtgUBvqhUwGugzSAh6sCdN+LnROMuLswn5hZ9Fhg==}
     engines: {node: '>=20.0.0'}
 
-  immutable@5.1.4:
-    resolution: {integrity: sha512-p6u1bG3YSnINT5RQmx/yRZBpenIl30kVxkTLDyHLIMk0gict704Q9n+thfDI7lTRm9vXdDYutVzXhzcThxTnXA==}
+  immutable@5.1.9:
+    resolution: {integrity: sha512-m8nVez3rwrgmWxtLMt1ZYXB2Lv7OKYn/disyxAlSDYAlKSlFoPPfIAmAM/M5xqL4m4C/wAPw7S2/CNaUii1Hxg==}
 
   import-fresh@3.3.1:
     resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
@@ -3577,8 +3591,9 @@ packages:
     resolution: {integrity: sha512-mfcwb6IzQyOKTs84CQMrOwW4gQcaTOAWJ0zzJCl2WSPDrWk/OzDaImWFH3djXhb24g4eudZfLRozAvPGw4d9hQ==}
     engines: {node: '>= 0.4'}
 
-  is-what@3.14.1:
-    resolution: {integrity: sha512-sNxgpk9793nzSs7bA6JQJGeIuRBQhAaNGG77kzYQgMkrID+lS6SlK07K5LaptscDlSaIgH+GPFzf+d75FVxozA==}
+  is-what@4.1.16:
+    resolution: {integrity: sha512-ZhMwEosbFJkA0YhFnNDgTM4ZxDRsS6HqTo7qsZM08fehyRYIYa0yHu5R6mgo1n/8MgaPBXiPimPD77baVFYg+A==}
+    engines: {node: '>=12.13'}
 
   is-wsl@2.2.0:
     resolution: {integrity: sha512-fKzAra0rGJUUBwGBgNkHZuToZcn+TtXHpeCgmkMJMMYx1sQDYaCSyjJBSCa2nH1DGm7s3n1oBnohoVTBaN7Lww==}
@@ -3657,9 +3672,9 @@ packages:
   leac@0.6.0:
     resolution: {integrity: sha512-y+SqErxb8h7nE/fiEX07jsbuhrpO9lL8eca7/Y1nuWV2moNlXhyd59iDGcRf6moVyDMbmTNzL40SUyrFU/yDpg==}
 
-  less@4.5.1:
-    resolution: {integrity: sha512-UKgI3/KON4u6ngSsnDADsUERqhZknsVZbnuzlRZXLQCmfC/MDld42fTydUE9B+Mla1AL6SJ/Pp6SlEFi/AVGfw==}
-    engines: {node: '>=14'}
+  less@4.9.1:
+    resolution: {integrity: sha512-orp15PfJvvNDIqJdVWzMI9Sjpjp3VTiw3sfvbB+67LlISTEn8uVT2EdYSuyl02BLvaftv6sdk9Umnxmm5rckmg==}
+    engines: {node: '>=18'}
     hasBin: true
 
   levn@0.4.1:
@@ -3809,9 +3824,9 @@ packages:
   mailparser@3.9.1:
     resolution: {integrity: sha512-6vHZcco3fWsDMkf4Vz9iAfxvwrKNGbHx0dV1RKVphQ/zaNY34Buc7D37LSa09jeSeybWzYcTPjhiZFxzVRJedA==}
 
-  make-dir@2.1.0:
-    resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==}
-    engines: {node: '>=6'}
+  make-dir@5.1.0:
+    resolution: {integrity: sha512-IfpFq6UM39dUNiphpA6uDezNx/AvWyhwfICWPR3t1VspkgkMZrL+Rk1RbN1bx+aeNYwOrqGJgEgV3yotk+ZUVw==}
+    engines: {node: '>=18'}
 
   make-error@1.3.6:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
@@ -4038,8 +4053,18 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanoid@3.3.20:
+    resolution: {integrity: sha512-uKdg2G3GNCKQn9byYOpxbGqrT2fGO5KRt5J/8b3pok8rT6qxGWF6hxMyJiEYtAf+FVyYuD9hRaDqX5uPFYJ4ZQ==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+
+  needle@2.9.1:
+    resolution: {integrity: sha512-6R9fqJ5Zcmf+uYaFgdIHmLwNldn5HbK8L5ybn7Uz+ylX/rnOsSp1AHcvQSrCaFN+qNM1wpymHqD7mVasEOlHGQ==}
+    engines: {node: '>= 4.4.x'}
+    hasBin: true
 
   needle@3.3.1:
     resolution: {integrity: sha512-6k0YULvhpw+RoLNiQCRKOl09Rv1dPLr8hHnVjHqdolKwDrdNyk+Hmrthi4lIGPPz3r39dLx0hsF5s40sZ3Us4Q==}
@@ -4264,10 +4289,6 @@ packages:
   picomatch@4.0.3:
     resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
     engines: {node: '>=12'}
-
-  pify@4.0.1:
-    resolution: {integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==}
-    engines: {node: '>=6'}
 
   pip-requirements-js@1.0.3:
     resolution: {integrity: sha512-1O9Bx0mPOZht3tW4LuxOA46qkD8A1AGymWXz3UwIMqGQgiTiOaFptsCf+9IE67qcbBrg8KHG6l8ePF7CoFRW/A==}
@@ -4632,6 +4653,10 @@ packages:
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
+  postcss@8.5.32:
+    resolution: {integrity: sha512-LJlKCCAUFKOuZxipUdYw1NzIITEsPcgyOG9LkvRJvuKj/bRzbuRY0ARXvL0pWGpsZvn8jku+LMep2eU0seHp8g==}
+    engines: {node: ^10 || ^12 || >=14}
+
   postcss@8.5.6:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
@@ -4714,6 +4739,9 @@ packages:
     resolution: {integrity: sha512-973driJZvxiGOQ5ONsFhOF/DtzPMOMtgC11kCpUrPGMTgqp2q/1gwzCquocrN33is0VZ5GFHXZYMM9l6h67v2Q==}
     engines: {node: '>=10'}
 
+  probe-image-size@7.5.0:
+    resolution: {integrity: sha512-ietdx4XPgmnzHRZOq1/KtcnsBkL4bRsBe+Szj5Tuq1/KPqDG42OspG1IhJb7vz6Z9pSzhp0J6UPnw6hujJTWoQ==}
+
   promisepipe@3.0.0:
     resolution: {integrity: sha512-V6TbZDJ/ZswevgkDNpGt/YqNCiZP9ASfgU+p83uJE6NrGtvSGoOcHLiDCqkMs2+yg7F5qHdLV8d0aS8O26G/KA==}
 
@@ -4776,6 +4804,10 @@ packages:
   readdirp@4.1.2:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
+
+  readdirp@5.1.1:
+    resolution: {integrity: sha512-Kko+Y5XQ6fM+Ce3dq3m9YGxnacYZYl9cA1wZjaF3Vbry2L3i1qVg8+CAgNPsXRArPMUMCaOR7oa9Nqntc43JKA==}
+    engines: {node: '>= 20.19.0'}
 
   recma-build-jsx@1.0.0:
     resolution: {integrity: sha512-8GtdyqaBcDfva+GUKDr3nev3VpKAhup1+RvkMvUxURHpW7QyIvk9F5wz7Vzo06CEMSilw6uArgRqhpiUcWp8ew==}
@@ -4889,9 +4921,9 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sass@1.97.3:
-    resolution: {integrity: sha512-fDz1zJpd5GycprAbu4Q2PV/RprsRtKC/0z82z0JLgdytmcq0+ujJbJ/09bPGDxCLkKY3Np5cRAOcWiVkLXJURg==}
-    engines: {node: '>=14.0.0'}
+  sass@1.107.1:
+    resolution: {integrity: sha512-aJ1/LvxOOb04YhmiBjzZn3jVwdHKol+OVhoMV6fFl02fF9T3i+5Mg9l/CnzqtM+NX5Jn5o3lAbs/ZJivTCLHfQ==}
+    engines: {node: '>=20.19.0'}
     hasBin: true
 
   sax@1.3.0:
@@ -4903,10 +4935,6 @@ packages:
 
   selderee@0.11.0:
     resolution: {integrity: sha512-5TF+l7p4+OsnP8BCCvSyZiSPc4x4//p5uPwK8TCnVPJYRmU2aYKMpOXvw8zM5a5JvuuCGN1jmsMwuU2W02ukfA==}
-
-  semver@5.7.2:
-    resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
-    hasBin: true
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -5013,6 +5041,10 @@ packages:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
+  source-map-js@1.2.2:
+    resolution: {integrity: sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw==}
+    engines: {node: '>=0.10.0'}
+
   source-map@0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
@@ -5054,6 +5086,7 @@ packages:
 
   stream-to-promise@2.2.0:
     resolution: {integrity: sha512-HAGUASw8NT0k8JvIVutB2Y/9iBk7gpgEyAudXwNJmZERdMITGdajOa4VJfD/kNiA3TppQpTP4J+CtcHwdzKBAw==}
+    deprecated: Deprecated. Use node:stream/promises and node:stream/consumers instead.
 
   string-width@4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
@@ -5229,6 +5262,7 @@ packages:
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
     engines: {node: ^18 || >=20}
+    deprecated: unmaintained
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
@@ -5278,8 +5312,9 @@ packages:
       eslint: ^8.57.0 || ^9.0.0
       typescript: '>=4.8.4 <5.9.0'
 
-  typescript-plugin-css-modules@5.2.0:
-    resolution: {integrity: sha512-c5pAU5d+m3GciDr/WhkFldz1NIEGBafuP/3xhFt9BEXS2gmn/LvjkoZ11vEBIuP8LkXfPNhOt1BUhM5efFuwOw==}
+  typescript-plugin-css-modules@5.3.0:
+    resolution: {integrity: sha512-ZCSp+b7MmI2bqvSg55hHUk6XDnRPSsZQnoFacLBLTlNrHmiK/vKDMOfcGg+j5yT8nphah54UBg8EPzf8xCwdcA==}
+    engines: {node: '>=20'}
     peerDependencies:
       typescript: '>=4.0.0'
 
@@ -5371,6 +5406,7 @@ packages:
 
   uuid@10.0.0:
     resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   v8-compile-cache-lib@3.0.1:
@@ -5599,7 +5635,7 @@ snapshots:
   '@adobe/css-tools@4.3.3':
     optional: true
 
-  '@builder.io/qwik-city@1.19.0(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(rollup@4.57.1)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(supports-color@10.2.2)(tsx@4.21.0)(typescript@5.4.5)(yaml@2.8.2)':
+  '@builder.io/qwik-city@1.19.0(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(rollup@4.57.1)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(supports-color@10.2.2)(tsx@4.21.0)(typescript@5.4.5)(yaml@2.8.2)':
     dependencies:
       '@mdx-js/mdx': 3.1.1(supports-color@10.2.2)
       '@types/mdx': 2.0.13
@@ -5608,7 +5644,7 @@ snapshots:
       undici: 7.19.2
       valibot: 1.2.0(typescript@5.4.5)
       vfile: 6.0.3
-      vite: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
+      vite: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
       vite-imagetools: 9.0.2(rollup@4.57.1)
       zod: 3.25.48
     transitivePeerDependencies:
@@ -5627,12 +5663,12 @@ snapshots:
       - typescript
       - yaml
 
-  '@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))':
+  '@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
       csstype: 3.2.3
       launch-editor: 2.12.0
       rollup: 4.57.1
-      vite: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
+      vite: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
 
   '@bytecodealliance/preview2-shim@0.17.6': {}
 
@@ -6743,18 +6779,18 @@ snapshots:
 
   '@poppinss/exception@1.2.3': {}
 
-  '@qwik-ui/headless@0.7.4(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))':
+  '@qwik-ui/headless@0.7.4(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))':
     dependencies:
-      '@builder.io/qwik': 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
+      '@builder.io/qwik': 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
       '@floating-ui/core': 1.7.4
       '@floating-ui/dom': 1.7.5
       '@oddbird/popover-polyfill': 0.4.3
       body-scroll-lock-upgrade: 1.1.0
       focus-trap: 7.5.4
 
-  '@qwik-ui/styled@0.4.1(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))':
+  '@qwik-ui/styled@0.4.1(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))':
     dependencies:
-      '@builder.io/qwik': 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
+      '@builder.io/qwik': 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
 
   '@qwik-ui/utils@0.3.3':
     dependencies:
@@ -6763,9 +6799,13 @@ snapshots:
       specificity: 1.0.0
       tailwind-merge: 1.14.0
 
-  '@qwikest/icons@0.0.13(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))':
+  '@qwik.dev/partytown@0.11.2':
     dependencies:
-      '@builder.io/qwik': 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
+      dotenv: 16.6.1
+
+  '@qwikest/icons@0.0.13(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))':
+    dependencies:
+      '@builder.io/qwik': 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
 
   '@renovatebot/pep440@4.2.1': {}
 
@@ -6971,12 +7011,12 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.1.18
       '@tailwindcss/oxide-win32-x64-msvc': 4.1.18
 
-  '@tailwindcss/vite@4.1.18(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))':
+  '@tailwindcss/vite@4.1.18(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
       '@tailwindcss/node': 4.1.18
       '@tailwindcss/oxide': 4.1.18
       tailwindcss: 4.1.18
-      vite: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
+      vite: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
 
   '@tootallnate/once@2.0.0': {}
 
@@ -7204,9 +7244,9 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@unpic/qwik@1.0.0(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))':
+  '@unpic/qwik@1.0.0(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)))':
     dependencies:
-      '@builder.io/qwik': 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
+      '@builder.io/qwik': 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
 
   '@vercel/backends@0.0.45(rollup@4.57.1)(supports-color@10.2.2)(typescript@5.4.5)':
     dependencies:
@@ -7504,9 +7544,9 @@ snapshots:
       json-schema-to-ts: 1.6.4
       ts-morph: 12.0.0
 
-  '@vitejs/plugin-basic-ssl@2.1.4(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))':
+  '@vitejs/plugin-basic-ssl@2.1.4(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
-      vite: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
+      vite: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
 
   '@yarnpkg/lockfile@1.1.0': {}
 
@@ -7770,9 +7810,9 @@ snapshots:
     dependencies:
       readdirp: 4.1.2
 
-  chokidar@4.0.3:
+  chokidar@5.0.0:
     dependencies:
-      readdirp: 4.1.2
+      readdirp: 5.1.1
 
   chownr@3.0.0: {}
 
@@ -7832,9 +7872,9 @@ snapshots:
 
   cookie@1.1.1: {}
 
-  copy-anything@2.0.6:
+  copy-anything@3.0.5:
     dependencies:
-      is-what: 3.14.1
+      is-what: 4.1.16
 
   create-require@1.1.1:
     optional: true
@@ -7964,6 +8004,13 @@ snapshots:
       es-errors: 1.3.0
       is-data-view: 1.0.2
 
+  debug@3.2.7(supports-color@10.2.2):
+    dependencies:
+      ms: 2.1.3
+    optionalDependencies:
+      supports-color: 10.2.2
+    optional: true
+
   debug@4.3.4(supports-color@10.2.2):
     dependencies:
       ms: 2.1.2
@@ -8043,7 +8090,7 @@ snapshots:
 
   dotenv-expand@11.0.7:
     dependencies:
-      dotenv: 16.4.7
+      dotenv: 16.6.1
 
   dotenv@16.4.7: {}
 
@@ -8778,9 +8825,9 @@ snapshots:
     dependencies:
       safer-buffer: 2.1.2
 
-  icss-utils@5.1.0(postcss@8.5.6):
+  icss-utils@5.1.0(postcss@8.5.32):
     dependencies:
-      postcss: 8.5.6
+      postcss: 8.5.32
 
   ieee754@1.2.1: {}
 
@@ -8788,12 +8835,9 @@ snapshots:
 
   ignore@7.0.5: {}
 
-  image-size@0.5.5:
-    optional: true
-
   imagetools-core@9.1.0: {}
 
-  immutable@5.1.4: {}
+  immutable@5.1.9: {}
 
   import-fresh@3.3.1:
     dependencies:
@@ -8951,7 +8995,7 @@ snapshots:
       call-bound: 1.0.4
       get-intrinsic: 1.3.0
 
-  is-what@3.14.1: {}
+  is-what@4.1.16: {}
 
   is-wsl@2.2.0:
     dependencies:
@@ -9030,19 +9074,20 @@ snapshots:
 
   leac@0.6.0: {}
 
-  less@4.5.1:
+  less@4.9.1(supports-color@10.2.2):
     dependencies:
-      copy-anything: 2.0.6
+      copy-anything: 3.0.5
       parse-node-version: 1.0.1
-      tslib: 2.8.1
     optionalDependencies:
       errno: 0.1.8
       graceful-fs: 4.2.11
-      image-size: 0.5.5
-      make-dir: 2.1.0
+      make-dir: 5.1.0
       mime: 1.6.0
       needle: 3.3.1
+      probe-image-size: 7.5.0(supports-color@10.2.2)
       source-map: 0.6.1
+    transitivePeerDependencies:
+      - supports-color
 
   levn@0.4.1:
     dependencies:
@@ -9165,10 +9210,7 @@ snapshots:
       punycode.js: 2.3.1
       tlds: 1.261.0
 
-  make-dir@2.1.0:
-    dependencies:
-      pify: 4.0.1
-      semver: 5.7.2
+  make-dir@5.1.0:
     optional: true
 
   make-error@1.3.6:
@@ -9572,7 +9614,18 @@ snapshots:
 
   nanoid@3.3.11: {}
 
+  nanoid@3.3.20: {}
+
   natural-compare@1.4.0: {}
+
+  needle@2.9.1(supports-color@10.2.2):
+    dependencies:
+      debug: 3.2.7(supports-color@10.2.2)
+      iconv-lite: 0.4.24
+      sax: 1.4.4
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
 
   needle@3.3.1:
     dependencies:
@@ -9846,9 +9899,6 @@ snapshots:
 
   picomatch@4.0.3: {}
 
-  pify@4.0.1:
-    optional: true
-
   pip-requirements-js@1.0.3:
     dependencies:
       ohm-js: 17.5.0
@@ -9993,12 +10043,12 @@ snapshots:
       '@csstools/utilities': 1.0.0(postcss@8.5.6)
       postcss: 8.5.6
 
-  postcss-load-config@3.1.4(postcss@8.5.6)(ts-node@10.9.1(@types/node@20.19.0)(typescript@5.4.5)):
+  postcss-load-config@3.1.4(postcss@8.5.32)(ts-node@10.9.1(@types/node@20.19.0)(typescript@5.4.5)):
     dependencies:
       lilconfig: 2.1.0
       yaml: 1.10.2
     optionalDependencies:
-      postcss: 8.5.6
+      postcss: 8.5.32
       ts-node: 10.9.1(@types/node@20.19.0)(typescript@5.4.5)
 
   postcss-logical@7.0.1(postcss@8.5.6):
@@ -10045,20 +10095,20 @@ snapshots:
       postcss: 8.5.6
       postcss-selector-parser: 7.1.1
 
-  postcss-modules-extract-imports@3.1.0(postcss@8.5.6):
+  postcss-modules-extract-imports@3.1.0(postcss@8.5.32):
     dependencies:
-      postcss: 8.5.6
+      postcss: 8.5.32
 
-  postcss-modules-local-by-default@4.2.0(postcss@8.5.6):
+  postcss-modules-local-by-default@4.2.0(postcss@8.5.32):
     dependencies:
-      icss-utils: 5.1.0(postcss@8.5.6)
-      postcss: 8.5.6
+      icss-utils: 5.1.0(postcss@8.5.32)
+      postcss: 8.5.32
       postcss-selector-parser: 7.1.1
       postcss-value-parser: 4.2.0
 
-  postcss-modules-scope@3.2.1(postcss@8.5.6):
+  postcss-modules-scope@3.2.1(postcss@8.5.32):
     dependencies:
-      postcss: 8.5.6
+      postcss: 8.5.32
       postcss-selector-parser: 7.1.1
 
   postcss-nesting@12.1.5(postcss@8.5.6):
@@ -10250,6 +10300,12 @@ snapshots:
 
   postcss-value-parser@4.2.0: {}
 
+  postcss@8.5.32:
+    dependencies:
+      nanoid: 3.3.20
+      picocolors: 1.1.1
+      source-map-js: 1.2.2
+
   postcss@8.5.6:
     dependencies:
       nanoid: 3.3.11
@@ -10273,6 +10329,14 @@ snapshots:
   pretty-ms@7.0.1:
     dependencies:
       parse-ms: 2.1.0
+
+  probe-image-size@7.5.0(supports-color@10.2.2):
+    dependencies:
+      lodash.merge: 4.6.2
+      needle: 2.9.1(supports-color@10.2.2)
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
 
   promisepipe@3.0.0: {}
 
@@ -10313,9 +10377,9 @@ snapshots:
 
   qwik-themes@0.2.0: {}
 
-  qwik-turnstile@0.0.3(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))):
+  qwik-turnstile@0.0.3(@builder.io/qwik@1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))):
     dependencies:
-      '@builder.io/qwik': 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
+      '@builder.io/qwik': 1.19.0(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2))
 
   qwik-ui@0.4.3(nx@22.4.4(debug@4.4.3(supports-color@10.2.2))):
     dependencies:
@@ -10344,6 +10408,8 @@ snapshots:
       util-deprecate: 1.0.2
 
   readdirp@4.1.2: {}
+
+  readdirp@5.1.1: {}
 
   recma-build-jsx@1.0.0:
     dependencies:
@@ -10531,10 +10597,10 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass@1.97.3:
+  sass@1.107.1:
     dependencies:
-      chokidar: 4.0.3
-      immutable: 5.1.4
+      chokidar: 5.0.0
+      immutable: 5.1.9
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.6
@@ -10547,9 +10613,6 @@ snapshots:
   selderee@0.11.0:
     dependencies:
       parseley: 0.12.1
-
-  semver@5.7.2:
-    optional: true
 
   semver@6.3.1: {}
 
@@ -10709,6 +10772,8 @@ snapshots:
       smart-buffer: 4.2.0
 
   source-map-js@1.2.1: {}
+
+  source-map-js@1.2.2: {}
 
   source-map@0.6.1:
     optional: true
@@ -11017,22 +11082,22 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  typescript-plugin-css-modules@5.2.0(supports-color@10.2.2)(ts-node@10.9.1(@types/node@20.19.0)(typescript@5.4.5))(typescript@5.4.5):
+  typescript-plugin-css-modules@5.3.0(supports-color@10.2.2)(ts-node@10.9.1(@types/node@20.19.0)(typescript@5.4.5))(typescript@5.4.5):
     dependencies:
       '@types/postcss-modules-local-by-default': 4.0.2
       '@types/postcss-modules-scope': 3.0.4
       dotenv: 16.6.1
-      icss-utils: 5.1.0(postcss@8.5.6)
-      less: 4.5.1
+      icss-utils: 5.1.0(postcss@8.5.32)
+      less: 4.9.1(supports-color@10.2.2)
       lodash.camelcase: 4.3.0
-      postcss: 8.5.6
-      postcss-load-config: 3.1.4(postcss@8.5.6)(ts-node@10.9.1(@types/node@20.19.0)(typescript@5.4.5))
-      postcss-modules-extract-imports: 3.1.0(postcss@8.5.6)
-      postcss-modules-local-by-default: 4.2.0(postcss@8.5.6)
-      postcss-modules-scope: 3.2.1(postcss@8.5.6)
+      postcss: 8.5.32
+      postcss-load-config: 3.1.4(postcss@8.5.32)(ts-node@10.9.1(@types/node@20.19.0)(typescript@5.4.5))
+      postcss-modules-extract-imports: 3.1.0(postcss@8.5.32)
+      postcss-modules-local-by-default: 4.2.0(postcss@8.5.32)
+      postcss-modules-scope: 3.2.1(postcss@8.5.32)
       reserved-words: 0.1.2
-      sass: 1.97.3
-      source-map-js: 1.2.1
+      sass: 1.107.1
+      source-map-js: 1.2.2
       tsconfig-paths: 4.2.0
       typescript: 5.4.5
     optionalDependencies:
@@ -11190,27 +11255,27 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  vite-plugin-mkcert@1.17.9(supports-color@10.2.2)(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)):
+  vite-plugin-mkcert@1.17.9(supports-color@10.2.2)(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)):
     dependencies:
       axios: 1.13.4(debug@4.4.3(supports-color@10.2.2))
       debug: 4.4.3(supports-color@10.2.2)
       picocolors: 1.1.1
-      vite: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
+      vite: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
 
-  vite-tsconfig-paths@4.3.2(supports-color@10.2.2)(typescript@5.4.5)(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)):
+  vite-tsconfig-paths@4.3.2(supports-color@10.2.2)(typescript@5.4.5)(vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)):
     dependencies:
       debug: 4.4.3(supports-color@10.2.2)
       globrex: 0.1.2
       tsconfck: 3.1.6(typescript@5.4.5)
     optionalDependencies:
-      vite: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
+      vite: 7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.5.1)(lightningcss@1.30.2)(sass@1.97.3)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2):
+  vite@7.2.6(@types/node@20.19.0)(jiti@2.6.1)(less@4.9.1(supports-color@10.2.2))(lightningcss@1.30.2)(sass@1.107.1)(stylus@0.62.0(supports-color@10.2.2))(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       esbuild: 0.25.12
       fdir: 6.5.0(picomatch@4.0.3)
@@ -11222,9 +11287,9 @@ snapshots:
       '@types/node': 20.19.0
       fsevents: 2.3.3
       jiti: 2.6.1
-      less: 4.5.1
+      less: 4.9.1(supports-color@10.2.2)
       lightningcss: 1.30.2
-      sass: 1.97.3
+      sass: 1.107.1
       stylus: 0.62.0(supports-color@10.2.2)
       tsx: 4.21.0
       yaml: 2.8.2

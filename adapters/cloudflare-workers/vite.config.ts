@@ -14,6 +14,7 @@ export default extendConfig(baseConfig, () => {
     plugins: [
       cloudflarePagesAdapter({
         functionRoutes: false,
+        ssg: { sitemapOutFile: null },
       }),
     ],
   };
