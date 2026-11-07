@@ -1,6 +1,5 @@
 import type { RequestHandler } from "@builder.io/qwik-city";
-
-const SITE = "https://enlacesalud.com.ar";
+import { SITE_URL } from "~/lib/site";
 
 // Páginas públicas e indexables. Quedan afuera admin y media.
 const PATHS = ["/", "/area-cardioasistida/"];
@@ -10,7 +9,7 @@ const escapeXml = (value: string) =>
 
 export const onGet: RequestHandler = (ev) => {
   const urls = PATHS.map(
-    (path) => `  <url><loc>${escapeXml(`${SITE}${path}`)}</loc></url>`,
+    (path) => `  <url><loc>${escapeXml(`${SITE_URL}${path}`)}</loc></url>`,
   ).join("\n");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
